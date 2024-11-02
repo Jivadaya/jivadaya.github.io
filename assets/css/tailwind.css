@@ -1,0 +1,1830 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+main {
+    display: block
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+a {
+    background-color: transparent
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted
+}
+
+b, strong {
+    font-weight: bolder
+}
+
+code, kbd, samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+small {
+    font-size: 80%
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -.25em
+}
+
+sup {
+    top: -.5em
+}
+
+img {
+    border-style: none
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0
+}
+
+button, input {
+    overflow: visible
+}
+
+button, select {
+    text-transform: none
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button
+}
+
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+fieldset {
+    padding: .35em .75em .625em
+}
+
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+
+progress {
+    vertical-align: baseline
+}
+
+textarea {
+    overflow: auto
+}
+
+[type=checkbox], [type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+details {
+    display: block
+}
+
+summary {
+    display: list-item
+}
+
+[hidden], template {
+    display: none
+}
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+    margin: 0
+}
+
+button {
+    background-color: transparent;
+    background-image: none
+}
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color
+}
+
+fieldset, ol, ul {
+    margin: 0;
+    padding: 0
+}
+
+ol, ul {
+    list-style: none
+}
+
+html {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    line-height: 1.5
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    border: 0 solid #002f3c
+}
+
+hr {
+    border-top-width: 1px
+}
+
+img {
+    border-style: solid
+}
+
+textarea {
+    resize: vertical
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #a0aec0
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #a0aec0
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+    color: #a0aec0
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a0aec0
+}
+
+[role=button], button {
+    cursor: pointer
+}
+
+table {
+    border-collapse: collapse
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit
+}
+
+button, input, optgroup, select, textarea {
+    padding: 0;
+    line-height: inherit;
+    color: inherit
+}
+
+code, kbd, pre, samp {
+    font-family: code-saver, monospace
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle
+}
+
+img, video {
+    max-width: 100%;
+    height: auto
+}
+
+* {
+    box-sizing: border-box
+}
+
+.bg-teal-grid {
+    background: url(/img/teal-grid.png);
+    background-size: 65px
+}
+
+header .avatar {
+    --transform-translate-x: 0;
+    --transform-translate-y: 0;
+    --transform-rotate: 0;
+    --transform-skew-x: 0;
+    --transform-skew-y: 0;
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    position: absolute;
+    --transform-rotate: 125deg;
+    top: -10px;
+    left: -70px
+}
+
+header .avatar:active {
+    --transform-scale-x: .95;
+    --transform-scale-y: .95
+}
+
+.clicky {
+    --transform-translate-x: 0;
+    --transform-translate-y: 0;
+    --transform-rotate: 0;
+    --transform-skew-x: 0;
+    --transform-skew-y: 0;
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    cursor: pointer
+}
+
+.clicky:active {
+    --transform-scale-x: .95;
+    --transform-scale-y: .95
+}
+
+.button {
+    --bg-opacity: 1;
+    background-color: #002f3c;
+    background-color: rgba(25, 25, 112, var(--bg-opacity));
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    padding: .5rem 1rem
+}
+
+nav .nav-circle {
+    position: absolute;
+    display: none
+}
+
+.main-nav a, .mobile-nav a {
+    padding: .25rem .5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    --transform-translate-x: 0;
+    --transform-translate-y: 0;
+    --transform-rotate: 0;
+    --transform-skew-x: 0;
+    --transform-skew-y: 0;
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))
+}
+
+.main-nav a:hover, .mobile-nav a:hover {
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1
+}
+
+.mobile-nav a {
+    --text-opacity: 1 !important;
+    color: #002f3c !important;
+    color: rgba(25, 25, 112, var(--text-opacity)) !important
+}
+
+.mobile-nav a.active, .mobile-nav a:hover {
+    --text-opacity: 1 !important;
+    color: #fd2d78 !important;
+    color: rgba(253, 45, 120, var(--text-opacity)) !important
+}
+
+nav a.active .nav-circle {
+    display: block
+}
+
+.bg-yellow nav a.active, .bg-yellow nav a:hover {
+    --text-opacity: 1;
+    color: #fd2d78;
+    color: rgba(253, 45, 120, var(--text-opacity))
+}
+
+.bg-yellow nav .jack-logo {
+    fill: #f7f474;
+    stroke: #002f3c
+}
+
+.bg-aqua nav a.active {
+    --text-opacity: 1;
+    color: #002f3c;
+    color: rgba(25, 25, 112, var(--text-opacity))
+}
+
+.bg-aqua nav .jack-logo {
+    fill: #0ff;
+    stroke: #002f3c
+}
+
+.bg-blue-deep nav a {
+    --text-opacity: 1;
+    color: #f7f474;
+    color: rgba(247, 244, 116, var(--text-opacity))
+}
+
+.bg-blue-deep nav a.active, .bg-blue-deep nav a:hover {
+    --text-opacity: 1;
+    color: #0ff;
+    color: rgba(0, 255, 255, var(--text-opacity))
+}
+
+.bg-blue-deep nav .jack-logo {
+    fill: #002f3c;
+    stroke: #f7f474
+}
+
+.bg-blue-deep nav .burger, .bg-red nav a {
+    --text-opacity: 1;
+    color: #f7f474;
+    color: rgba(247, 244, 116, var(--text-opacity))
+}
+
+.bg-red nav a.active, .bg-red nav a:hover {
+    --text-opacity: 1;
+    color: #0ff;
+    color: rgba(0, 255, 255, var(--text-opacity))
+}
+
+.bg-red nav .jack-logo {
+    fill: #fd2d78;
+    stroke: #f7f474
+}
+
+.jack-logo {
+    width: 256px !important
+}
+
+@media (min-width: 768px) {
+    .jack-logo {
+        width: 100%
+    }
+}
+
+[data-aos=walking] {
+    position: relative;
+    left: 0;
+    top: 0
+}
+
+[data-aos=walking].aos-animate {
+    animation: left-to-right 20s steps(70) infinite
+}
+
+@keyframes left-to-right {
+    0% {
+        left: 0
+    }
+    to {
+        left: 100%
+    }
+}
+
+.text-vertical {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    -webkit-text-orientation: mixed;
+    text-orientation: mixed
+}
+
+.markdown {
+    font-size: 1rem;
+    font-family: code-saver, monospace
+}
+
+.markdown > h2 {
+    font-size: 1.875rem;
+    line-height: 1.25;
+    margin-top: 6rem
+}
+
+.markdown > h2, .markdown h3 {
+    font-family: peachy-keen-jf, sans-serif
+}
+
+.markdown h3 {
+    font-size: 1.25rem
+}
+
+.markdown blockquote, .markdown h3, .markdown img, .markdown ol, .markdown p, .markdown table, .markdown ul {
+    margin-top: 2rem
+}
+
+.markdown h3 + p {
+    margin-top: 1rem
+}
+
+.markdown h6, .markdown ol, .markdown ul {
+    font-family: Nanum Pen Script, cursive
+}
+
+.markdown ol, .markdown ul {
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 2rem
+}
+
+.markdown ol li, .markdown ul li {
+    margin-bottom: .5rem
+}
+
+.markdown ol code, .markdown ul code {
+    position: relative;
+    bottom: 3px
+}
+
+.markdown ul {
+    list-style-type: square
+}
+
+.markdown ol {
+    list-style-type: decimal
+}
+
+.markdown blockquote {
+    font-family: Nanum Pen Script, cursive;
+    font-size: 1.875rem;
+    line-height: 1;
+    --text-opacity: 1;
+    color: #fd2d78;
+    color: rgba(253, 45, 120, var(--text-opacity))
+}
+
+.markdown > p:first-child {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0
+}
+
+.markdown a {
+    font-weight: 700;
+    background-image: linear-gradient(180deg, transparent 70%, #ffbe59 0);
+    background-position: 4px bottom;
+    background-repeat: no-repeat
+}
+
+.markdown a:hover {
+    --text-opacity: 1;
+    color: #fd2d78;
+    color: rgba(253, 45, 120, var(--text-opacity));
+    background-image: linear-gradient(180deg, transparent 20%, #ffbe59 0)
+}
+
+.markdown table td {
+    border-width: 2px;
+    --border-opacity: 1;
+    border-color: #002f3c;
+    border-color: rgba(25, 25, 112, var(--border-opacity));
+    padding: .5rem;
+    font-size: 1rem
+}
+
+.markdown hr {
+    --text-opacity: 1;
+    color: #002f3c;
+    color: rgba(25, 25, 112, var(--text-opacity));
+    text-align: center;
+    margin-top: 4rem;
+    padding: 0 0 2rem;
+    overflow: visible;
+    border: none;
+    border-top: double #ffbe59
+}
+
+.markdown hr:after {
+    --bg-opacity: 1;
+    background-color: #f7f474;
+    background-color: rgba(247, 244, 116, var(--bg-opacity));
+    display: inline-block;
+    position: relative;
+    content: "\1F525";
+    top: -.7em;
+    font-size: 1.5em;
+    padding: 0 .25em
+}
+
+.markdown code {
+    font-size: 1rem;
+    --text-opacity: 1;
+    color: #fd2d78;
+    color: rgba(253, 45, 120, var(--text-opacity))
+}
+
+.markdown pre > code {
+    font-size: .875rem;
+    --bg-opacity: 1;
+    background-color: #002f3c;
+    background-color: rgba(25, 25, 112, var(--bg-opacity));
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    width: 100%;
+    display: block;
+    padding: .75rem;
+    margin-top: .5rem;
+    margin-bottom: 2rem;
+    overflow-x: scroll;
+    max-width: 100%
+}
+
+.stark .markdown strong {
+    font-weight: 900
+}
+
+.article > * {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.article > .cp_embed_wrapper {
+    max-width: 56rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem
+}
+
+@media (min-width: 1024px) {
+    .markdown .oversized, .markdown blockquote {
+        position: relative;
+        width: 56rem;
+        max-width: none;
+        left: 50%;
+        right: 50%;
+        margin-left: -28rem;
+        margin-right: -28rem
+    }
+
+    .markdown .full-bleed {
+        position: relative;
+        width: 100vw;
+        max-width: 100%
+    }
+
+    .markdown pre > code {
+        font-size: 1rem
+    }
+
+    .markdown blockquote {
+        padding: 1rem 3rem 3rem 5rem;
+        background: url(/img/frame.svg) no-repeat;
+        background-size: 100% 100%
+    }
+}
+
+footer {
+    background: url(img/footer-blob.svg) no-repeat bottom;
+    background-size: cover;
+    min-height: 500px;
+    width: 100%
+}
+
+.jumbo {
+    font-size: clamp(26px, 7vw, 100px)
+}
+
+@media (min-width: 1600px) {
+    footer {
+        min-height: 440px
+    }
+}
+
+.hover\:exclusion:hover {
+    mix-blend-mode: exclusion
+}
+
+#jungle {
+    top: -176px
+}
+
+@media (min-width: 768px) {
+    #jungle {
+        top: -540px
+    }
+}
+
+[x-cloak] {
+    display: none
+}
+
+.parent .child-slide-right {
+    transform: translateX(0);
+    opacity: 0
+}
+
+.parent:hover .child-slide-right {
+    animation: slide-in .33s forwards
+}
+
+@keyframes slide-in {
+    to {
+        transform: translateX(16px);
+        opacity: 1
+    }
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite
+}
+
+.slow-blink {
+    animation: blink-animation 3s steps(5, start) infinite;
+    -webkit-animation: blink-animation 3s steps(5, start) infinite
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden
+    }
+}
+
+.container {
+    width: 100%
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px
+    }
+}
+
+.space-y-6 > :not(template) ~ :not(template) {
+    --space-y-reverse: 0 !important;
+    margin-top: calc(1.5rem * (1 - var(--space-y-reverse))) !important;
+    margin-bottom: calc(1.5rem * var(--space-y-reverse)) !important
+}
+
+.space-x-8 > :not(template) ~ :not(template) {
+    --space-x-reverse: 0 !important;
+    margin-right: calc(2rem * var(--space-x-reverse)) !important;
+    margin-left: calc(2rem * (1 - var(--space-x-reverse))) !important
+}
+
+.space-y-12 > :not(template) ~ :not(template) {
+    --space-y-reverse: 0 !important;
+    margin-top: calc(3rem * (1 - var(--space-y-reverse))) !important;
+    margin-bottom: calc(3rem * var(--space-y-reverse)) !important
+}
+
+.bg-aqua {
+    background-color: #0ff !important;
+    background-color: rgba(0, 255, 255, var(--bg-opacity)) !important
+}
+
+.bg-aqua, .bg-white {
+    --bg-opacity: 1 !important
+}
+
+.bg-white {
+    background-color: #fff !important;
+    background-color: rgba(255, 255, 255, var(--bg-opacity)) !important
+}
+
+.bg-black {
+    background-color: #161719 !important;
+    background-color: rgba(22, 23, 25, var(--bg-opacity)) !important
+}
+
+.bg-black, .bg-yellow {
+    --bg-opacity: 1 !important
+}
+
+.bg-yellow {
+    background-color: #f7f474 !important;
+    background-color: rgba(247, 244, 116, var(--bg-opacity)) !important
+}
+
+.bg-blue-deep {
+    --bg-opacity: 1 !important;
+    background-color: #002f3c !important;
+    background-color: rgba(25, 25, 112, var(--bg-opacity)) !important
+}
+
+.bg-blue-rad {
+    background-color: #000025 !important;
+    background-color: rgba(0, 0, 37, var(--bg-opacity)) !important
+}
+
+.bg-blue-rad, .bg-red {
+    --bg-opacity: 1 !important
+}
+
+.bg-red {
+    background-color: #fd2d78 !important;
+    background-color: rgba(253, 45, 120, var(--bg-opacity)) !important
+}
+
+.hover\:bg-blue-deep:hover {
+    --bg-opacity: 1 !important;
+    background-color: #002f3c !important;
+    background-color: rgba(25, 25, 112, var(--bg-opacity)) !important
+}
+
+.hover\:bg-red:hover {
+    --bg-opacity: 1 !important;
+    background-color: #fd2d78 !important;
+    background-color: rgba(253, 45, 120, var(--bg-opacity)) !important
+}
+
+.rounded {
+    border-radius: .25rem !important
+}
+
+.rounded-lg {
+    border-radius: .5rem !important
+}
+
+.border-8 {
+    border-width: 8px !important
+}
+
+.border {
+    border-width: 1px !important
+}
+
+.cursor-pointer {
+    cursor: pointer !important
+}
+
+.block {
+    display: block !important
+}
+
+.inline-block {
+    display: inline-block !important
+}
+
+.flex {
+    display: flex !important
+}
+
+.table {
+    display: table !important
+}
+
+.hidden {
+    display: none !important
+}
+
+.flex-col {
+    flex-direction: column !important
+}
+
+.items-center {
+    align-items: center !important
+}
+
+.justify-end {
+    justify-content: flex-end !important
+}
+
+.justify-center {
+    justify-content: center !important
+}
+
+.justify-between {
+    justify-content: space-between !important
+}
+
+.justify-around {
+    justify-content: space-around !important
+}
+
+.order-1 {
+    order: 1 !important
+}
+
+.float-right {
+    float: right !important
+}
+
+.float-left {
+    float: left !important
+}
+
+.font-display {
+    xfont-family: peachy-keen-jf, sans-serif !important
+}
+
+.font-hand {
+    font-family: Nanum Pen Script, cursive !important
+}
+
+.font-sans {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important
+}
+
+.font-mono {
+    font-family: code-saver, monospace !important
+}
+
+.font-normal {
+    font-weight: 400 !important
+}
+
+.font-bold {
+    font-weight: 700 !important
+}
+
+.font-black {
+    font-weight: 900 !important
+}
+
+.h-1 {
+    height: .25rem !important
+}
+
+.h-12 {
+    height: 3rem !important
+}
+
+.h-16 {
+    height: 4rem !important
+}
+
+.h-32 {
+    height: 8rem !important
+}
+
+.h-screen {
+    height: 100vh !important
+}
+
+.text-xs {
+    font-size: .75rem !important
+}
+
+.text-sm {
+    font-size: .875rem !important
+}
+
+.text-lg {
+    font-size: 1.125rem !important
+}
+
+.text-xl {
+    font-size: 1.25rem !important
+}
+
+.text-2xl {
+    font-size: 1.5rem !important
+}
+
+.text-3xl {
+    font-size: 1.875rem !important
+}
+
+.text-4xl {
+    font-size: 2.25rem !important
+}
+
+.text-5xl {
+    font-size: 2.75rem !important
+}
+
+.text-6xl {
+    font-size: 4rem !important
+}
+
+.text-7xl {
+    font-size: 5rem !important
+}
+
+.leading-none {
+    line-height: 1 !important
+}
+
+.leading-tight {
+    line-height: 1.25 !important
+}
+
+.leading-normal {
+    line-height: 1.5 !important
+}
+
+.my-8 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important
+}
+
+.my-16 {
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important
+}
+
+.my-48 {
+    margin-top: 12rem !important;
+    margin-bottom: 12rem !important
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important
+}
+
+.-my-4 {
+    margin-top: -1rem !important;
+    margin-bottom: -1rem !important
+}
+
+.ml-3 {
+    margin-left: .75rem !important
+}
+
+.mt-4 {
+    margin-top: 1rem !important
+}
+
+.mb-4 {
+    margin-bottom: 1rem !important
+}
+
+.mb-5 {
+    margin-bottom: 1.25rem !important
+}
+
+.mt-8 {
+    margin-top: 2rem !important
+}
+
+.mb-8 {
+    margin-bottom: 2rem !important
+}
+
+.mr-12 {
+    margin-right: 3rem !important
+}
+
+.mb-12 {
+    margin-bottom: 3rem !important
+}
+
+.mt-16 {
+    margin-top: 4rem !important
+}
+
+.mb-16 {
+    margin-bottom: 4rem !important
+}
+
+.mt-24 {
+    margin-top: 6rem !important
+}
+
+.mb-24 {
+    margin-bottom: 6rem !important
+}
+
+.mt-32 {
+    margin-top: 8rem !important
+}
+
+.mt-48 {
+    margin-top: 12rem !important
+}
+
+.mb-48 {
+    margin-bottom: 12rem !important
+}
+
+.mb-64 {
+    margin-bottom: 16rem !important
+}
+
+.-ml-3 {
+    margin-left: -.75rem !important
+}
+
+.-ml-16 {
+    margin-left: -4rem !important
+}
+
+.max-w-none {
+    max-width: none !important
+}
+
+.max-w-md {
+    max-width: 28rem !important
+}
+
+.max-w-lg {
+    max-width: 32rem !important
+}
+
+.max-w-xl {
+    max-width: 36rem !important
+}
+
+.max-w-2xl {
+    max-width: 42rem !important
+}
+
+.max-w-3xl {
+    max-width: 48rem !important
+}
+
+.max-w-4xl {
+    max-width: 56rem !important
+}
+
+.max-w-5xl {
+    max-width: 64rem !important
+}
+
+.max-w-6xl {
+    max-width: 72rem !important
+}
+
+.max-w-7xl {
+    max-width: 80rem !important
+}
+
+.max-w-full {
+    max-width: 100% !important
+}
+
+.min-h-800 {
+    min-height: 800px !important
+}
+
+.min-h-screen {
+    min-height: 100vh !important
+}
+
+.min-h-double {
+    min-height: 200vh !important
+}
+
+.min-h-triple {
+    min-height: 300vh !important
+}
+
+.opacity-25 {
+    opacity: .25 !important
+}
+
+.overflow-hidden {
+    overflow: hidden !important
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden !important
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll !important
+}
+
+.p-4 {
+    padding: 1rem !important
+}
+
+.py-2 {
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important
+}
+
+.px-2 {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important
+}
+
+.px-3 {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important
+}
+
+.py-4 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important
+}
+
+.px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important
+}
+
+.py-6 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important
+}
+
+.py-8 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important
+}
+
+.px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important
+}
+
+.py-10 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important
+}
+
+.py-12 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important
+}
+
+.py-48 {
+    padding-top: 12rem !important;
+    padding-bottom: 12rem !important
+}
+
+.pb-4 {
+    padding-bottom: 1rem !important
+}
+
+.pl-4 {
+    padding-left: 1rem !important
+}
+
+.pl-6 {
+    padding-left: 1.5rem !important
+}
+
+.pb-8 {
+    padding-bottom: 2rem !important
+}
+
+.pt-12 {
+    padding-top: 3rem !important
+}
+
+.pt-16 {
+    padding-top: 4rem !important
+}
+
+.pb-24 {
+    padding-bottom: 6rem !important
+}
+
+.pt-48 {
+    padding-top: 12rem !important
+}
+
+.pb-48 {
+    padding-bottom: 12rem !important
+}
+
+.pt-64 {
+    padding-top: 16rem !important
+}
+
+.pointer-events-none {
+    pointer-events: none !important
+}
+
+.static {
+    position: static !important
+}
+
+.fixed {
+    position: fixed !important
+}
+
+.absolute {
+    position: absolute !important
+}
+
+.relative {
+    position: relative !important
+}
+
+.inset-0 {
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important
+}
+
+.inset-0, .top-0 {
+    top: 0 !important
+}
+
+.right-0 {
+    right: 0 !important
+}
+
+.bottom-0 {
+    bottom: 0 !important
+}
+
+.left-0 {
+    left: 0 !important
+}
+
+.shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04) !important
+}
+
+.text-left {
+    text-align: left !important
+}
+
+.text-center {
+    text-align: center !important
+}
+
+.text-right {
+    text-align: right !important
+}
+
+.text-aqua {
+    color: #0ff !important;
+    color: rgba(0, 255, 255, var(--text-opacity)) !important
+}
+
+.text-aqua, .text-white {
+    --text-opacity: 1 !important
+}
+
+.text-white {
+    color: #fff !important;
+    color: rgba(255, 255, 255, var(--text-opacity)) !important
+}
+
+.text-black {
+    color: #161719 !important;
+    color: rgba(22, 23, 25, var(--text-opacity)) !important
+}
+
+.text-black, .text-yellow {
+    --text-opacity: 1 !important
+}
+
+.text-yellow {
+    color: #f7f474 !important;
+    color: rgba(247, 244, 116, var(--text-opacity)) !important
+}
+
+.text-blue-deep {
+    color: #002f3c !important;
+    color: rgba(25, 25, 112, var(--text-opacity)) !important
+}
+
+.text-blue-deep, .text-red {
+    --text-opacity: 1 !important
+}
+
+.text-red {
+    color: #fd2d78 !important;
+    color: rgba(253, 45, 120, var(--text-opacity)) !important
+}
+
+.hover\:text-aqua:hover {
+    --text-opacity: 1 !important;
+    color: #0ff !important;
+    color: rgba(0, 255, 255, var(--text-opacity)) !important
+}
+
+.hover\:text-white:hover {
+    --text-opacity: 1 !important;
+    color: #fff !important;
+    color: rgba(255, 255, 255, var(--text-opacity)) !important
+}
+
+.hover\:text-blue-deep:hover {
+    --text-opacity: 1 !important;
+    color: #002f3c !important;
+    color: rgba(25, 25, 112, var(--text-opacity)) !important
+}
+
+.hover\:text-red:hover {
+    --text-opacity: 1 !important;
+    color: #fd2d78 !important;
+    color: rgba(253, 45, 120, var(--text-opacity)) !important
+}
+
+.italic {
+    font-style: italic !important
+}
+
+.not-italic {
+    font-style: normal !important
+}
+
+.uppercase {
+    text-transform: uppercase !important
+}
+
+.underline {
+    text-decoration: underline !important
+}
+
+.hover\:no-underline:hover {
+    text-decoration: none !important
+}
+
+.antialiased {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important
+}
+
+.tracking-wide {
+    letter-spacing: .1em !important
+}
+
+.tracking-widest {
+    letter-spacing: .5em !important
+}
+
+.w-12 {
+    width: 3rem !important
+}
+
+.w-40 {
+    width: 10rem !important
+}
+
+.w-48 {
+    width: 12rem !important
+}
+
+.w-1\/2 {
+    width: 50% !important
+}
+
+.w-full {
+    width: 100% !important
+}
+
+.w-screen {
+    width: 100vw !important
+}
+
+.z-0 {
+    z-index: 0 !important
+}
+
+.z-1 {
+    z-index: 1 !important
+}
+
+.z-10 {
+    z-index: 10 !important
+}
+
+.z-20 {
+    z-index: 20 !important
+}
+
+.z-50 {
+    z-index: 50 !important
+}
+
+.transform {
+    --transform-translate-x: 0 !important;
+    --transform-translate-y: 0 !important;
+    --transform-rotate: 0 !important;
+    --transform-skew-x: 0 !important;
+    --transform-skew-y: 0 !important;
+    --transform-scale-x: 1 !important;
+    --transform-scale-y: 1 !important;
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y)) !important
+}
+
+.scale-90 {
+    --transform-scale-x: .9 !important;
+    --transform-scale-y: .9 !important
+}
+
+.-scale-x-1 {
+    --transform-scale-x: -1 !important
+}
+
+.-scale-y-1 {
+    --transform-scale-y: -1 !important
+}
+
+.rotate-2 {
+    --transform-rotate: 2deg !important
+}
+
+.rotate-3 {
+    --transform-rotate: 3deg !important
+}
+
+.rotate-45 {
+    --transform-rotate: 45deg !important
+}
+
+.-rotate-45 {
+    --transform-rotate: -45deg !important
+}
+
+.-rotate-3 {
+    --transform-rotate: -3deg !important
+}
+
+.-rotate-2 {
+    --transform-rotate: -2deg !important
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes ping {
+    75%, to {
+        transform: scale(2);
+        opacity: 0
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .5
+    }
+}
+
+@keyframes bounce {
+    0%, to {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(.8, 0, 1, 1)
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, .2, 1)
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:container {
+        width: 100%
+    }
+}
+
+@media (min-width: 640px) and (min-width: 640px) {
+    .sm\:container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 640px) and (min-width: 768px) {
+    .sm\:container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 640px) and (min-width: 1024px) {
+    .sm\:container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 640px) and (min-width: 1280px) {
+    .sm\:container {
+        max-width: 1280px
+    }
+}
+
+@media (min-width: 768px) {
+    .md\:container {
+        width: 100%
+    }
+}
+
+@media (min-width: 768px) and (min-width: 640px) {
+    .md\:container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 768px) and (min-width: 768px) {
+    .md\:container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 768px) and (min-width: 1024px) {
+    .md\:container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 768px) and (min-width: 1280px) {
+    .md\:container {
+        max-width: 1280px
+    }
+}
+
+@media (min-width: 768px) {
+    .md\:block {
+        display: block !important
+    }
+
+    .md\:flex {
+        display: flex !important
+    }
+
+    .md\:hidden {
+        display: none !important
+    }
+
+    .md\:flex-row {
+        flex-direction: row !important
+    }
+
+    .md\:text-2xl {
+        font-size: 1.5rem !important
+    }
+
+    .md\:text-3xl {
+        font-size: 1.875rem !important
+    }
+
+    .md\:text-5xl {
+        font-size: 2.75rem !important
+    }
+
+    .md\:text-6xl {
+        font-size: 4rem !important
+    }
+
+    .md\:text-10xl {
+        font-size: 9rem !important
+    }
+
+    .md\:-my-12 {
+        margin-top: -3rem !important;
+        margin-bottom: -3rem !important
+    }
+
+    .md\:mb-0 {
+        margin-bottom: 0 !important
+    }
+
+    .md\:mt-32 {
+        margin-top: 8rem !important
+    }
+
+    .md\:-ml-56 {
+        margin-left: -14rem !important
+    }
+
+    .md\:min-h-screen {
+        min-height: 100vh !important
+    }
+
+    .md\:p-0 {
+        padding: 0 !important
+    }
+
+    .md\:px-8 {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important
+    }
+
+    .md\:py-24 {
+        padding-bottom: 6rem !important
+    }
+
+    .md\:pt-24, .md\:py-24 {
+        padding-top: 6rem !important
+    }
+
+    .md\:pl-32 {
+        padding-left: 8rem !important
+    }
+
+    .md\:pt-48 {
+        padding-top: 12rem !important
+    }
+
+    .md\:pt-56 {
+        padding-top: 14rem !important
+    }
+
+    .md\:z-0 {
+        z-index: 0 !important
+    }
+
+    .md\:z-1 {
+        z-index: 1 !important
+    }
+
+    .md\:transform {
+        --transform-translate-x: 0 !important;
+        --transform-translate-y: 0 !important;
+        --transform-rotate: 0 !important;
+        --transform-skew-x: 0 !important;
+        --transform-skew-y: 0 !important;
+        --transform-scale-x: 1 !important;
+        --transform-scale-y: 1 !important;
+        transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y)) !important
+    }
+
+    .md\:scale-100 {
+        --transform-scale-x: 1 !important;
+        --transform-scale-y: 1 !important
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:container {
+        width: 100%
+    }
+}
+
+@media (min-width: 1024px) and (min-width: 640px) {
+    .lg\:container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 1024px) and (min-width: 768px) {
+    .lg\:container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 1024px) and (min-width: 1024px) {
+    .lg\:container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 1024px) and (min-width: 1280px) {
+    .lg\:container {
+        max-width: 1280px
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:block {
+        display: block !important
+    }
+
+    .lg\:flex {
+        display: flex !important
+    }
+
+    .lg\:flex-row {
+        flex-direction: row !important
+    }
+
+    .lg\:order-1 {
+        order: 1 !important
+    }
+
+    .lg\:text-5xl {
+        font-size: 2.75rem !important
+    }
+
+    .lg\:text-10xl {
+        font-size: 9rem !important
+    }
+
+    .lg\:mr-48 {
+        margin-right: 12rem !important
+    }
+
+    .lg\:max-w-md {
+        max-width: 28rem !important
+    }
+
+    .lg\:px-0 {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+    }
+
+    .lg\:px-24 {
+        padding-left: 6rem !important;
+        padding-right: 6rem !important
+    }
+
+    .lg\:py-32 {
+        padding-top: 8rem !important;
+        padding-bottom: 8rem !important
+    }
+
+    .lg\:relative {
+        position: relative !important
+    }
+
+    .lg\:w-1\/2 {
+        width: 50% !important
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:container {
+        width: 100%
+    }
+}
+
+@media (min-width: 1280px) and (min-width: 640px) {
+    .xl\:container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 1280px) and (min-width: 768px) {
+    .xl\:container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 1280px) and (min-width: 1024px) {
+    .xl\:container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 1280px) and (min-width: 1280px) {
+    .xl\:container {
+        max-width: 1280px
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:ml-24 {
+        margin-left: 6rem !important
+    }
+}
