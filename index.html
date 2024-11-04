@@ -1027,7 +1027,7 @@
 <script>
     let referrer = window.location.pathname.split('/').at(-1);
     console.log(referrer);
-    $("#referrer").value = referrer;
+    $("#referrer").val(referrer);
 
     document.addEventListener("DOMContentLoaded", function () {
         // Retrieve the donation amount from localStorage
