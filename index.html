@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>JIVADAYA ISKCON PUNE</title>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/jquery.timepicker.css">
 
     <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/flaticon.css">
-    <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -108,7 +108,7 @@
                                     </p>
                                 </div>
                                 <a href="https://www.youtube.com/@Jivadaya"
-                                   class="d-flex align-items-center button-link">
+                                   class="d-flex align-items-center button-link" target="_blank">
                                     <div class="button-video d-flex align-items-center justify-content-center">
                                         <span class="fa fa-play"></span>
                                     </div>
@@ -139,7 +139,8 @@
                                         <a href="#donation-form" class="btn donate-btn py-3 px-2 px-md-4">Donate</a>
                                     </p>
                                 </div>
-                                <a href="#" class="d-flex align-items-center button-link">
+                                <a href="https://www.youtube.com/@Jivadaya"
+                                   class="d-flex align-items-center button-link" target="_blank">
                                     <div class="button-video d-flex align-items-center justify-content-center">
                                         <span class="fa fa-play"></span>
                                     </div>
@@ -174,7 +175,8 @@
                                         <a href="#donation-form" class="btn donate-btn py-3 px-2 px-md-4">Donate</a>
                                     </p>
                                 </div>
-                                <a href="#" class="d-flex align-items-center button-link">
+                                <a href="https://www.youtube.com/@Jivadaya"
+                                   class="d-flex align-items-center button-link" target="_blank">
                                     <div class="button-video d-flex align-items-center justify-content-center">
                                         <span class="fa fa-play"></span>
                                     </div>
@@ -764,6 +766,28 @@
     </div>
 </section>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-body">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
@@ -786,7 +810,8 @@
                         </div>
                         <h3 class="heading"><a href="#">The Essence of &amp; Shastra Daan</a></h3>
                         <p>Shastra Daan is the greatest gift, offering knowledge that leads to eternal peace and fulfillment</p>
-                        <p><a href="https://youtube.com/jivadaya" target="_blank" class="btn btn-secondary">Watch</a></p>
+                        <p class="btn btn-secondary video-btn" data-toggle="modal"
+                              data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
                 </div>
             </div>
@@ -803,7 +828,8 @@
                         </div>
                         <h3 class="heading"><a href="#">Spiritual  &amp; Enlightenment</a></h3>
                         <p>By giving Shastra Daan, we illuminate the path of others toward spiritual enlightenment.</p>
-                        <p><a href="https://youtube.com/jivadaya" target="_blank" class="btn btn-secondary">Watch</a></p>
+                        <p class="btn btn-secondary video-btn" data-toggle="modal"
+                           data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
                 </div>
             </div>
@@ -820,7 +846,8 @@
                         </div>
                         <h3 class="heading"><a href="#">The Power of  &amp; Knowledge</a></h3>
                         <p>Knowledge is the most potent weapon for transformation; Shastra Daan empowers individuals to change their lives</p>
-                        <p><a href="https://youtube.com/jivadaya" target="_blank" class="btn btn-secondary">Watch</a></p>
+                        <p class="btn btn-secondary video-btn" data-toggle="modal"
+                           data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
                 </div>
             </div>
@@ -836,7 +863,8 @@
                         </div>
                         <h3 class="heading"><a href="#"> Charity of &amp;  Wisdom</a></h3>
                         <p>Shastra Daan represents the charity of wisdom, fostering a deep understanding of life’s ultimate truths.</p>
-                        <p><a href="https://youtube.com/jivadaya" target="_blank" class="btn btn-secondary">Watch</a></p>
+                        <p class="btn btn-secondary video-btn" data-toggle="modal"
+                           data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
                 </div>
             </div>
@@ -1022,24 +1050,6 @@
 <script src="https://jivadaya.github.io/assets/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="https://jivadaya.github.io/assets/js/google-map.js"></script>
-<script src="https://jivadaya.github.io/assets/js/main.js"></script>
-<script>
-    let referrer = window.location.pathname.split('/').at(-1);
-    console.log(referrer);
-    $("#referrer").value = referrer;
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // Retrieve the donation amount from localStorage
-        const amount = localStorage.getItem("donationAmount");
-        if (amount) {
-            // Check if the input field exists before trying to set its value
-            const donationInput = document.getElementById("donationAmount");
-            if (donationInput) {
-                donationInput.value = amount; // Set the amount in the input field
-            }
-            localStorage.removeItem("donationAmount"); // Clear the stored amount
-        }
-    });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
