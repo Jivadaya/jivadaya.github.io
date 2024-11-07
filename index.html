@@ -263,7 +263,7 @@
                                         <div class="icon"><span class="fa fa-user"></span></div>
                                         <input type="text" pattern="[a-z A-Z]{5,}"
                                                title="Enter alphabets and Space only - Min 5 characters"
-                                               id="name_field" class="form-control" placeholder="" name="name_field"
+                                               id="name_field" class="form-control" placeholder="Your Name" name="name_field"
                                                minlength="5"
                                                maxlength="100" required>
                                     </div>
@@ -333,22 +333,22 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="payment-gateway">Payment Method</label>
-                                    <div class="d-lg-flex" id="payment-gateway">
-                                        <div class="form-radio mr-3">
-                                            <div class="radio">
+                                    <div class="d-lg-flex align-items-center" id="payment-gateway">
+                                        <div class="form-radio mr-auto">
+                                            <div class="radio text-center">
                                                 <label>
                                                     <input type="radio" name="pg" id="radio1" value="cc_avenue" checked>
                                                     <span class="checkmark"></span>
-                                                    <span class="fill-control-description">CC Avenue (For UPI and other payments)</span>
+                                                    <span class="fill-control-description">CC Avenue <br>(Preferable for UPI)</span>
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="form-radio mr-3">
-                                            <div class="radio">
+                                        <div class="form-radio mr-auto">
+                                            <div class="radio text-center">
                                                 <label>
                                                     <input type="radio" name="pg" id="radio2" value="razorpay">
                                                     <span class="checkmark"></span>
-                                                    <span class="fill-control-description">Razorpay (Non-UPI Payments)</span>
+                                                    <span class="fill-control-description">Razorpay</span>
                                                 </label>
                                             </div>
                                         </div>
