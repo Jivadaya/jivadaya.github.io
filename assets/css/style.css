@@ -10235,3 +10235,25 @@ textarea.form-control {
   color:#fff;
   opacity:1;
 }
+
+
+@media (max-width: 576px) {
+  #form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #row1 {
+   order: 3
+  }
+
+
+  #row2 {
+    order: 1
+  }
+
+
+  #row3 {
+    order: 2
+  }
+}
