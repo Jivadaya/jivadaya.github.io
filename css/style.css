@@ -555,6 +555,18 @@ address {
 /****************************/
 /*********Media query***********/
 
+/*#slider1 {*/
+/*  background-image:url("https://jivadaya.github.io/assets/img/donate/bg_1.jpg");*/
+/*}*/
+
+/*#slider2 {*/
+/*  background-image:url("https://jivadaya.github.io/assets/img/donate/bg_2.jpg");*/
+/*}*/
+
+/*#slider3 {*/
+/*  background-image:url("https://jivadaya.github.io/assets/img/donate/bg_3.jpg");*/
+/*}*/
+
 @media (max-width: 84em) {
   .short-para {
     display: block;
@@ -652,3 +664,4 @@ address {
   } */
   
 }
+

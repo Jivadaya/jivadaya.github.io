@@ -10235,3 +10235,37 @@ textarea.form-control {
   color:#fff;
   opacity:1;
 }
+
+
+@media (max-width: 576px) {
+  #form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #row1 {
+   order: 3
+  }
+
+
+  #row2 {
+    order: 1
+  }
+
+
+  #row3 {
+    order: 2
+  }
+
+  #slider1 {
+    background-image:url("https://jivadaya.github.io/assets/img/donate/mobile-bg-new.jpg") !important;
+  }
+
+  #slider2 {
+    background-image:url("https://jivadaya.github.io/assets/img/donate/mobile-bg-new.jpg") !important;
+  }
+
+  #slider3 {
+    background-image:url("https://jivadaya.github.io/assets/img/donate/mobile-bg-new.jpg") !important;
+  }
+}
