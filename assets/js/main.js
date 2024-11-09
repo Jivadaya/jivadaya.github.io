@@ -232,3 +232,105 @@ $(document).ready(function() {
 	})
 });
 
+$(".donate-option-btn").click(function() {
+	let element_id=this.id;
+	console.log(element_id);
+	$('#' + element_id + '-intro').css('display', 'none');
+	$('#' + element_id + '-choose').css('display', 'block');
+})
+
+const shastraDaanDonateButton = document.getElementById("shastra-daan-donate-btn");
+
+document.querySelectorAll('input[name="shastra-daan-gita-option"]').forEach((radio) => {
+	radio.addEventListener('change', () => {
+		const amount = radio.value;
+		shastraDaanDonateButton.textContent = `Donate ₹ ${amount}`;
+		shastraDaanDonateButton.disabled = false; // Enable button when a radio option is selected
+		// numberInput.value = ''; // Clear number input if a radio option is selected
+	});
+});
+
+$("#shastra-daan-donate-btn").click(function () {
+	const selectedOption = document.querySelector('input[name="shastra-daan-gita-option"]:checked');
+	let amount = 0;
+
+	// Determine amount based on selection or input
+	if (selectedOption) {
+		amount = selectedOption.value; // Use selected radio button value
+		console.log(amount);
+		$('#amount').val(amount);
+	}
+	document.getElementById("donation-form").scrollIntoView();
+})
+
+const sbDonateButton = document.getElementById("sb-donate-btn");
+
+document.querySelectorAll('input[name="sb-gita-option"]').forEach((radio) => {
+	radio.addEventListener('change', () => {
+		const amount = radio.value;
+		sbDonateButton.textContent = `Donate ₹ ${amount}`;
+		sbDonateButton.disabled = false; // Enable button when a radio option is selected
+		// numberInput.value = ''; // Clear number input if a radio option is selected
+	});
+});
+
+$("#sb-donate-btn").click(function () {
+	const selectedOption = document.querySelector('input[name="sb-gita-option"]:checked');
+	let amount = 0;
+
+	// Determine amount based on selection or input
+	if (selectedOption) {
+		amount = selectedOption.value; // Use selected radio button value
+		console.log(amount);
+		$('#amount').val(amount);
+	}
+	document.getElementById("donation-form").scrollIntoView();
+})
+
+const monkDonateButton = document.getElementById("monk-donate-btn");
+
+document.querySelectorAll('input[name="monk-gita-option"]').forEach((radio) => {
+	radio.addEventListener('change', () => {
+		const amount = radio.value;
+		monkDonateButton.textContent = `Donate ₹ ${amount}`;
+		monkDonateButton.disabled = false; // Enable button when a radio option is selected
+		// numberInput.value = ''; // Clear number input if a radio option is selected
+	});
+});
+
+$("#monk-donate-btn").click(function () {
+	const selectedOption = document.querySelector('input[name="monk-gita-option"]:checked');
+	let amount = 0;
+
+	// Determine amount based on selection or input
+	if (selectedOption) {
+		amount = selectedOption.value; // Use selected radio button value
+		console.log(amount);
+		$('#amount').val(amount);
+	}
+	document.getElementById("donation-form").scrollIntoView();
+})
+
+const vecDonateButton = document.getElementById("vec-donate-btn");
+
+document.querySelectorAll('input[name="vec-gita-option"]').forEach((radio) => {
+	radio.addEventListener('change', () => {
+		const amount = radio.value;
+		vecDonateButton.textContent = `Donate ₹ ${amount}`;
+		vecDonateButton.disabled = false; // Enable button when a radio option is selected
+		// numberInput.value = ''; // Clear number input if a radio option is selected
+	});
+});
+
+$("#vec-donate-btn").click(function () {
+	const selectedOption = document.querySelector('input[name="vec-gita-option"]:checked');
+	let amount = 0;
+
+	// Determine amount based on selection or input
+	if (selectedOption) {
+		amount = selectedOption.value; // Use selected radio button value
+		console.log(amount);
+		$('#amount').val(amount);
+	}
+	document.getElementById("donation-form").scrollIntoView();
+})

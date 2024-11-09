@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/jquery.timepicker.css">
 
     <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/flaticon.css">
-    <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -426,9 +426,9 @@
         <div id="row3" class="row">
             <div class="col-md-6 col-lg-3">
                 <div class="causes causes-2 text-center ftco-animate">
-                    <a href="#" class="img w-100"
-                       style="background-image: url(assets/img/donate/causes-1.jpg);"></a>
-                    <div class="text p-3">
+                    <div class="img w-100"
+                       style="background-image: url(assets/img/donate/causes-1.jpg);"></div>
+                    <div class="text p-3" id="shastra-daan-intro">
                         <h2><a href="#">Shastra Daan <p>Donate Bhagvad Gita</p></a></h2>
                         <p>Share the Wisdom of the Bhagavad Gita with Those in Need</p>
                         <!-- <div class="goal mb-4">
@@ -437,8 +437,37 @@
                                 <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
                             </div>
                         </div> -->
-                        <p><a href="#donation-form" class="btn btn-light w-100">Donate Now</a>
-                        </p>
+                        <p class="btn btn-light w-100 donate-option-btn" id="shastra-daan">Donate Now </p>
+                    </div>
+
+                    <div class="text p-3 choose-option" id="shastra-daan-choose">
+                        <form>
+                            <div class="shastra-daan-gita-option">
+                                <input type="radio" class="btn-light" name="shastra-daan-gita-option" value="2201" id="success-outlined" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined">11 Bhagavad Gita (₹2201)</label>
+                            </div>
+
+                            <div class="shastra-daan-gita-option">
+                                <input type="radio" class="btn-light" name="shastra-daan-gita-option" value="5001" id="success-outlined-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-1">25 Bhagavad Gita (₹5,001)</label>
+                            </div>
+
+                            <div class="shastra-daan-gita-option">
+                                <input type="radio" class="btn-light" name="shastra-daan-gita-option" value="10201" id="success-outlined-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-2">51 Bhagavad Gita (₹10,201)</label>
+                            </div>
+
+                            <div class="shastra-daan-gita-option">
+                                <input type="radio" class="btn-light" name="shastra-daan-gita-option" value="21601" id="success-outlined-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-3">108 Bhagavad Gita (₹21,601)</label>
+                            </div>
+
+    <!--                        <div class="gita-option">-->
+    <!--                            <label for="numberInput">Choose yourself:</label>-->
+    <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+    <!--                        </div>-->
+                            <button type="button" class="btn btn-light w-100" id="shastra-daan-donate-btn" disabled>Donate</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -446,17 +475,48 @@
                 <div class="causes causes-2 text-center ftco-animate">
                     <a href="#" class="img w-100"
                        style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-2.jpg);"></a>
-                    <div class="text p-3">
+
+                    <div class="text p-3" id="sb-intro">
                         <h2><a href="#donation-form">Donate Srimad Bhagavatam</a></h2>
                         <p>Share timeless wisdom—support Srimad Bhagavatam distribution today!</p>
 
                         <!-- <div class="goal mb-4">
                             <p><span>$3,800</span> to go</p>
                             <div class="progress" style="height:20px">
-                                <div class="progress-bar progress-bar-striped" style="width:82%; height:20px">82%</div>
+                                <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
                             </div>
-                        </div>-->
-                        <p><a href="#donation-form" class="btn btn-light w-100">Donate Now</a></p>
+                        </div> -->
+                        <p class="btn btn-light w-100 donate-option-btn" id="sb">Donate Now </p>
+                    </div>
+
+                    <div class="text p-3 choose-option" id="sb-choose">
+                        <form>
+                            <div class="sb-gita-option">
+                                <input type="radio" class="btn-light" name="sb-gita-option" value="2201" id="success-outlined-sb" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-sb">11 Bhagavad Gita (₹2201)</label>
+                            </div>
+
+                            <div class="sb-gita-option">
+                                <input type="radio" class="btn-light" name="sb-gita-option" value="5001" id="success-outlined-sb-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-sb-1">25 Bhagavad Gita (₹5,001)</label>
+                            </div>
+
+                            <div class="sb-gita-option">
+                                <input type="radio" class="btn-light" name="sb-gita-option" value="10201" id="success-outlined-sb-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-sb-2">51 Bhagavad Gita (₹10,201)</label>
+                            </div>
+
+                            <div class="sb-gita-option">
+                                <input type="radio" class="btn-light" name="sb-gita-option" value="21601" id="success-outlined-sb-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-sb-3">108 Bhagavad Gita (₹21,601)</label>
+                            </div>
+
+                            <!--                        <div class="gita-option">-->
+                            <!--                            <label for="numberInput">Choose yourself:</label>-->
+                            <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+                            <!--                        </div>-->
+                            <button type="button" class="btn btn-light w-100" id="sb-donate-btn" disabled>Donate</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -464,16 +524,48 @@
                 <div class="causes causes-2 text-center ftco-animate">
                     <a href="#donation-form" class="img w-100"
                        style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-3.jpg);"></a>
-                    <div class="text p-3">
+
+                    <div class="text p-3" id="monk-intro">
                         <h2><a href="#">Fund A Sankirtan Monk</a></h2>
                         <p>Help monks spread spiritual wisdom—support their mission today!</p>
+
                         <!-- <div class="goal mb-4">
                             <p><span>$3,800</span> to go</p>
                             <div class="progress" style="height:20px">
-                                <div class="progress-bar progress-bar-striped" style="width:95%; height:20px">95%</div>
+                                <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
                             </div>
                         </div> -->
-                        <p><a href="#donation-form" class="btn btn-light w-100">Donate Now</a></p>
+                        <p class="btn btn-light w-100 donate-option-btn" id="monk">Donate Now </p>
+                    </div>
+
+                    <div class="text p-3 choose-option" id="monk-choose">
+                        <form>
+                            <div class="monk-gita-option">
+                                <input type="radio" class="btn-light" name="monk-gita-option" value="2201" id="success-outlined-monk" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk">11 Bhagavad Gita (₹2201)</label>
+                            </div>
+
+                            <div class="monk-gita-option">
+                                <input type="radio" class="btn-light" name="monk-gita-option" value="5001" id="success-outlined-monk-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk-1">25 Bhagavad Gita (₹5,001)</label>
+                            </div>
+
+                            <div class="monk-gita-option">
+                                <input type="radio" class="btn-light" name="monk-gita-option" value="10201" id="success-outlined-monk-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk-2">51 Bhagavad Gita (₹10,201)</label>
+                            </div>
+
+                            <div class="monk-gita-option">
+                                <input type="radio" class="btn-light" name="monk-gita-option" value="21601" id="success-outlined-monk-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk-3">108 Bhagavad Gita (₹21,601)</label>
+                            </div>
+
+                            <!--                        <div class="gita-option">-->
+                            <!--                            <label for="numberInput">Choose yourself:</label>-->
+                            <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+                            <!--                        </div>-->
+                            <button type="button" class="btn btn-light w-100" id="monk-donate-btn" disabled>Donate</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -481,18 +573,50 @@
                 <div class="causes causes-2 text-center ftco-animate">
                     <a href="#donation-form" class="img w-100"
                        style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-4.jpg);"></a>
-                    <div class="text p-3">
-                        <h2><a href="#">Support School Gita Contest</a></h2>
-                        <p>Inspire young minds—support the School Gita Contest today!</p>
-                        <!-- <div class="goal mb-4">
-                            <p><span>$3,800</span> to go</p>
-                            <div class="progress" style="height:20px">
-                                <div class="progress-bar progress-bar-striped" style="width:75%; height:20px">75%</div>
-                            </div>
-                        </div> -->
-                        <p><a href="#donation-form" class="btn btn-light w-100">Donate Now</a></p>
-                    </div>
+
+                <div class="text p-3" id="vec-intro">
+                    <h2><a href="#">Support School Gita Contest</a></h2>
+                    <p>Inspire young minds—support the School Gita Contest today!</p>
+
+                    <!-- <div class="goal mb-4">
+                        <p><span>$3,800</span> to go</p>
+                        <div class="progress" style="height:20px">
+                            <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
+                        </div>
+                    </div> -->
+                    <p class="btn btn-light w-100 donate-option-btn" id="vec">Donate Now </p>
                 </div>
+
+                <div class="text p-3 choose-option" id="vec-choose">
+                    <form>
+                        <div class="vec-gita-option">
+                            <input type="radio" class="btn-light" name="vec-gita-option" value="2201" id="success-outlined-vec" autocomplete="off">
+                            <label class="btn btn-outline-success" for="success-outlined-vec">11 Bhagavad Gita (₹2201)</label>
+                        </div>
+
+                        <div class="vec-gita-option">
+                            <input type="radio" class="btn-light" name="vec-gita-option" value="5001" id="success-outlined-vec-1" autocomplete="off">
+                            <label class="btn btn-outline-success" for="success-outlined-vec-1">25 Bhagavad Gita (₹5,001)</label>
+                        </div>
+
+                        <div class="vec-gita-option">
+                            <input type="radio" class="btn-light" name="vec-gita-option" value="10201" id="success-outlined-vec-2" autocomplete="off">
+                            <label class="btn btn-outline-success" for="success-outlined-vec-2">51 Bhagavad Gita (₹10,201)</label>
+                        </div>
+
+                        <div class="vec-gita-option">
+                            <input type="radio" class="btn-light" name="vec-gita-option" value="21601" id="success-outlined-vec-3" autocomplete="off">
+                            <label class="btn btn-outline-success" for="success-outlined-vec-3">108 Bhagavad Gita (₹21,601)</label>
+                        </div>
+
+                        <!--                        <div class="gita-option">-->
+                        <!--                            <label for="numberInput">Choose yourself:</label>-->
+                        <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+                        <!--                        </div>-->
+                        <button type="button" class="btn btn-light w-100" id="vec-donate-btn" disabled>Donate</button>
+                    </form>
+                </div>
+            </div>
             </div>
         </div>
     </div>
