@@ -211,7 +211,7 @@ $(document).ready(function() {
 	let referrer = window.location.pathname.split('/').at(-1);
 	console.log("Referrer: ", referrer);
 	$("#referrer").val(referrer);
-	$("#referred_by").text(referrer);
+	document.getElementById('referred_by').innerText = referrer;
 
 	// Gets the video src from the data-src on each button
 	var $videoSrc;
