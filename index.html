@@ -308,7 +308,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name_field">Full Name</label>
+<!--                                    <label for="name_field">Full Name</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-user"></span></div>
                                         <input type="text" pattern="[a-z A-Z]{5,}"
@@ -321,7 +321,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="email">Email Address</label>
+<!--                                    <label for="email">Email Address</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-paper-plane"></span></div>
                                         <input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="email"
@@ -334,7 +334,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="mobile">Mobile</label>
+<!--                                    <label for="mobile">Mobile</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-paper-plane"></span></div>
                                         <input type="tel" id="mobile" class="form-control" name="mobile"
@@ -347,31 +347,9 @@
                                 </div>
                             </div>
 
-                            <!--								<div class="col-md-12">-->
-                            <!--									<div class="form-group">-->
-                            <!--										<label for="name">Select Causes</label>-->
-                            <!--										-->
-                            <!--										<div class="form-field">-->
-                            <!--											<div class="select-wrap">-->
-                            <!--												<div class="icon"><span class="fa fa-chevron-down"></span></div>-->
-                            <!--												<select name="" id="" class="form-control">-->
-                            <!--													<option value=""></option>-->
-                            <!--													<option value="">House Washing</option>-->
-                            <!--													<option value="">Roof Cleaning</option>-->
-                            <!--													<option value="">Driveway Cleaning</option>-->
-                            <!--													<option value="">Gutter Cleaning</option>-->
-                            <!--													<option value="">Patio Cleaning</option>-->
-                            <!--													<option value="">Building Cleaning</option>-->
-                            <!--													<option value="">Concrete Cleaning</option>-->
-                            <!--													<option value="">Sidewal Cleaning</option>-->
-                            <!--												</select>-->
-                            <!--											</div>-->
-                            <!--										</div>-->
-                            <!--									</div>-->
-                            <!--								</div>-->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="amount">Amount</label>
+<!--                                    <label for="amount">Amount</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-money"></span></div>
                                         <input type="number" id="amount" class="form-control" placeholder="Amount in ₹"
@@ -380,6 +358,38 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="80g_checkbox" name="80g_checkbox" onclick="show80GFields()">
+                                        <label class="form-check-label" for="80g_checkbox">
+                                            Do you want 80G Tax Exemption?
+                                        </label>
+                                    </div>
+                                    <div id="conditionalFields" style="display:none;">
+                                        <input type="text" class="form-control mb-2" placeholder="Address" id="address" name="address">
+                                        <div class="row">
+                                            <div class="col-6" style="padding-right: 5px;">
+                                                <input type="text" class="form-control mb-2" placeholder="City" id="city" name="city">
+                                            </div>
+                                            <div class="col-6" style="padding-left: 5px;">
+                                                <input type="text" class="form-control mb-2" placeholder="State" id="state" name="state">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6" style="padding-right: 5px;">
+                                                <input type="text" class="form-control" placeholder="Pin Code" id="zipcode" name="zipcode">
+                                            </div>
+                                            <div class="col-6" style="padding-left: 5px;">
+                                                <input type="text" class="form-control mb-2" placeholder="PAN" id="pan" name="pan">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="payment-gateway">Payment Method</label>
@@ -413,7 +423,6 @@
 
                             <input type="hidden" name="referrer" id="referrer" value="">
                             <input type="hidden" name="scheme" id="scheme" value="Default">
-
                         </div>
                     </form>
                 </div>
