@@ -345,3 +345,23 @@ $("#vec-donate-btn").click(function () {
 	}
 	document.getElementById("donation-form").scrollIntoView();
 })
+
+function show80GFields() {
+	var checkbox = document.getElementById("80g_checkbox");
+	var fields = document.getElementById("conditionalFields");
+	if (checkbox.checked) {
+		fields.style.display = "block";
+		document.getElementById("pan").required = true;
+		document.getElementById("address").required = true;
+		document.getElementById("city").required = true;
+		document.getElementById("state").required = true;
+		document.getElementById("zipcode").required = true;
+	} else {
+		fields.style.display = "none";
+		document.getElementById("pan").required = false;
+		document.getElementById("address").required = false;
+		document.getElementById("city").required = false;
+		document.getElementById("state").required = false;
+		document.getElementById("zipcode").required = false;
+	}
+}
