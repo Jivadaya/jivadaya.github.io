@@ -9,7 +9,7 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
 
     <link rel="stylesheet" href="https://jivadaya.github.io/assets/css/animate.css">
 
@@ -58,7 +58,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <!-- Logo -->
-        <a href="index.html" class="d-flex align-items-center">
+        <a href="#" class="d-flex align-items-center">
             <!-- Logo -->
             <img src="https://jivadaya.github.io/assets/img/donate/logo.png" alt="Logo"
                  style="height: 40px; margin-right: 10px;">
@@ -71,13 +71,13 @@
     </div>
     <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-            <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-            <!-- <li class="nav-item"><a href="volunteer.html" class="nav-link">Sankirtan (Bus Party)</a></li> -->
-            <!-- <li class="nav-item"><a href="causes.html" class="nav-link">Causes</a></li> -->
+            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+            <!-- <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+            <!-- <li class="nav-item"><a href="#" class="nav-link">Sankirtan (Bus Party)</a></li> -->
+            <!-- <li class="nav-item"><a href="#" class="nav-link">Causes</a></li> -->
             <li class="nav-item"><a href="https://iskconbooks.jivadaya.org" target="_blank"
                                     class="nav-link">BookStore</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
             <li class="nav-item cta"><a href="#donation-form" class="nav-link">Donate</a></li>
         </ul>
     </div>
@@ -86,7 +86,7 @@
 <!-- END nav -->
 <section class="hero-wrap js-fullheight">
 
-    
+
     <div class="home-slider js-fullheight owl-carousel">
         <div class="slider-item js-fullheight" id="slider1"
              style="background-image:url(https://jivadaya.github.io/assets/img/donate/bg_1.jpg);">
@@ -304,16 +304,18 @@
                         </p>
                     </div>
                     <form method="POST" action="request.php" class="appointment">
-                        <p style="color:#ffffff; text-align: center;">Referred by: <span id="referred_by">None</span></p>
+                        <p style="color:#ffffff; text-align: center;">Referred by: <span id="referred_by">None</span>
+                        </p>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-<!--                                    <label for="name_field">Full Name</label>-->
+                                    <!--                                    <label for="name_field">Full Name</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-user"></span></div>
                                         <input type="text" pattern="[a-z A-Z]{5,}"
                                                title="Enter alphabets and Space only - Min 5 characters"
-                                               id="name_field" class="form-control" placeholder="Your Name" name="name_field"
+                                               id="name_field" class="form-control" placeholder="Your Name"
+                                               name="name_field"
                                                minlength="5"
                                                maxlength="100" required>
                                     </div>
@@ -321,7 +323,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-<!--                                    <label for="email">Email Address</label>-->
+                                    <!--                                    <label for="email">Email Address</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-paper-plane"></span></div>
                                         <input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="email"
@@ -334,7 +336,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-<!--                                    <label for="mobile">Mobile</label>-->
+                                    <!--                                    <label for="mobile">Mobile</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-paper-plane"></span></div>
                                         <input type="tel" id="mobile" class="form-control" name="mobile"
@@ -349,7 +351,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-<!--                                    <label for="amount">Amount</label>-->
+                                    <!--                                    <label for="amount">Amount</label>-->
                                     <div class="input-wrap">
                                         <div class="icon"><span class="fa fa-money"></span></div>
                                         <input type="number" id="amount" class="form-control" placeholder="Amount in ₹"
@@ -360,30 +362,34 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="80g_checkbox" name="80g_checkbox" onclick="show80GFields()">
-                                        <label class="form-check-label" for="80g_checkbox">
-                                            Do you want 80G Tax Exemption?
-                                        </label>
-                                    </div>
-                                    <div id="conditionalFields" style="display:none;">
-                                        <input type="text" class="form-control mb-2" placeholder="Address" id="address" name="address">
-                                        <div class="row">
-                                            <div class="col-6" style="padding-right: 5px;">
-                                                <input type="text" class="form-control mb-2" placeholder="City" id="city" name="city">
-                                            </div>
-                                            <div class="col-6" style="padding-left: 5px;">
-                                                <input type="text" class="form-control mb-2" placeholder="State" id="state" name="state">
-                                            </div>
+                                <div class="form-check form-group">
+                                    <input type="checkbox" class="form-check-input" id="80g_checkbox"
+                                           name="80g_checkbox" onclick="show80GFields()">
+                                    <label class="form-check-label" for="80g_checkbox">
+                                        Do you want 80G Tax Exemption?
+                                    </label>
+                                </div>
+                                <div id="conditionalFields" style="display:none;">
+                                    <input type="text" class="form-control mb-2" placeholder="Address" id="address"
+                                           name="address">
+                                    <div class="row">
+                                        <div class="col-6" style="padding-right: 5px;">
+                                            <input type="text" class="form-control mb-2" placeholder="City" id="city"
+                                                   name="city">
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6" style="padding-right: 5px;">
-                                                <input type="text" class="form-control" placeholder="Pin Code" id="zipcode" name="zipcode">
-                                            </div>
-                                            <div class="col-6" style="padding-left: 5px;">
-                                                <input type="text" class="form-control mb-2" placeholder="PAN" id="pan" name="pan">
-                                            </div>
+                                        <div class="col-6" style="padding-left: 5px;">
+                                            <input type="text" class="form-control mb-2" placeholder="State" id="state"
+                                                   name="state">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" style="padding-right: 5px;">
+                                            <input type="text" class="form-control" placeholder="Pin Code" id="zipcode"
+                                                   name="zipcode">
+                                        </div>
+                                        <div class="col-6" style="padding-left: 5px;">
+                                            <input type="text" class="form-control mb-2" placeholder="PAN" id="pan"
+                                                   name="pan">
                                         </div>
                                     </div>
                                 </div>
@@ -438,7 +444,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="causes causes-2 text-center ftco-animate">
                     <div class="img w-100"
-                       style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-1.jpg);"></div>
+                         style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-1.jpg);"></div>
                     <div class="text p-3" id="shastra-daan-intro">
                         <h2><a href="#">Shastra Daan <p>Donate Bhagvad Gita</p></a></h2>
                         <p>Share the Wisdom of the Bhagavad Gita with Those in Need</p>
@@ -454,30 +460,40 @@
                     <div class="text p-3 choose-option" id="shastra-daan-choose">
                         <form>
                             <div class="shastra-daan-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option" value="2201" id="success-outlined" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined">11 Bhagavad Gita (₹2201)</label>
+                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option"
+                                       value="2201" id="success-outlined" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined">11 Bhagavad Gita
+                                    (₹2201)</label>
                             </div>
 
                             <div class="shastra-daan-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option" value="5001" id="success-outlined-1" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined-1">25 Bhagavad Gita (₹5,001)</label>
+                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option"
+                                       value="5001" id="success-outlined-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-1">25 Bhagavad Gita
+                                    (₹5,001)</label>
                             </div>
 
                             <div class="shastra-daan-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option" value="10201" id="success-outlined-2" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined-2">51 Bhagavad Gita (₹10,201)</label>
+                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option"
+                                       value="10201" id="success-outlined-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-2">51 Bhagavad Gita
+                                    (₹10,201)</label>
                             </div>
 
                             <div class="shastra-daan-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option" value="21601" id="success-outlined-3" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined-3">108 Bhagavad Gita (₹21,601)</label>
+                                <input type="radio" class="btn-check btn-light" name="shastra-daan-gita-option"
+                                       value="21601" id="success-outlined-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-3">108 Bhagavad Gita
+                                    (₹21,601)</label>
                             </div>
 
-    <!--                        <div class="gita-option">-->
-    <!--                            <label for="numberInput">Choose yourself:</label>-->
-    <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
-    <!--                        </div>-->
-                            <button type="button" class="btn btn-light w-100" id="shastra-daan-donate-btn" disabled>Donate</button>
+                            <!--                        <div class="gita-option">-->
+                            <!--                            <label for="numberInput">Choose yourself:</label>-->
+                            <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+                            <!--                        </div>-->
+                            <button type="button" class="btn btn-light w-100" id="shastra-daan-donate-btn" disabled>
+                                Donate
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -526,7 +542,8 @@
                             <!--                            <label for="numberInput">Choose yourself:</label>-->
                             <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
                             <!--                        </div>-->
-                            <button type="button" class="btn btn-light w-100" id="sb-donate-btn" disabled>Donate</button>
+                            <button type="button" class="btn btn-light w-100" id="sb-donate-btn" disabled>Donate
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -552,8 +569,10 @@
                     <div class="text p-3 choose-option" id="monk-choose">
                         <form>
                             <div class="monk-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="monk-gita-option" value="2201" id="success-outlined-monk" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined-monk">1 Monk (₹2,001)</label>
+                                <input type="radio" class="btn-check btn-light" name="monk-gita-option" value="2201"
+                                       id="success-outlined-monk" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk">1 Monk
+                                    (₹2,001)</label>
                             </div>
 
                             <div class="monk-gita-option">
@@ -567,15 +586,18 @@
                             </div>
 
                             <div class="monk-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="monk-gita-option" value="21601" id="success-outlined-monk-3" autocomplete="off">
-                                <label class="btn btn-outline-success" for="success-outlined-monk-3">51 Monk (₹21,001)</label>
+                                <input type="radio" class="btn-check btn-light" name="monk-gita-option" value="21601"
+                                       id="success-outlined-monk-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-monk-3">51 Monk
+                                    (₹21,001)</label>
                             </div>
 
                             <!--                        <div class="gita-option">-->
                             <!--                            <label for="numberInput">Choose yourself:</label>-->
                             <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
                             <!--                        </div>-->
-                            <button type="button" class="btn btn-light w-100" id="monk-donate-btn" disabled>Donate</button>
+                            <button type="button" class="btn btn-light w-100" id="monk-donate-btn" disabled>Donate
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -585,49 +607,58 @@
                     <a href="#donation-form" class="img w-100"
                        style="background-image: url(https://jivadaya.github.io/assets/img/donate/causes-4.jpg);"></a>
 
-                <div class="text p-3" id="vec-intro">
-                    <h2><a href="#">Support School Gita Contest</a></h2>
-                    <p>Inspire young minds—support the School Gita Contest today!</p>
+                    <div class="text p-3" id="vec-intro">
+                        <h2><a href="#">Support School Gita Contest</a></h2>
+                        <p>Inspire young minds—support the School Gita Contest today!</p>
 
-                    <!-- <div class="goal mb-4">
-                        <p><span>$3,800</span> to go</p>
-                        <div class="progress" style="height:20px">
-                            <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
-                        </div>
-                    </div> -->
-                    <p class="btn btn-light w-100 donate-option-btn" id="vec">Donate Now </p>
+                        <!-- <div class="goal mb-4">
+                            <p><span>$3,800</span> to go</p>
+                            <div class="progress" style="height:20px">
+                                <div class="progress-bar progress-bar-striped" style="width:70%; height:20px">70%</div>
+                            </div>
+                        </div> -->
+                        <p class="btn btn-light w-100 donate-option-btn" id="vec">Donate Now </p>
+                    </div>
+
+                    <div class="text p-3 choose-option" id="vec-choose">
+                        <form>
+                            <div class="vec-gita-option">
+                                <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="2201"
+                                       id="success-outlined-vec" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-vec">11 Students
+                                    (₹2201)</label>
+                            </div>
+
+                            <div class="vec-gita-option">
+                                <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="5001"
+                                       id="success-outlined-vec-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-vec-1">25 Students
+                                    (₹5,001)</label>
+                            </div>
+
+                            <div class="vec-gita-option">
+                                <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="10201"
+                                       id="success-outlined-vec-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-vec-2">51 Students
+                                    (₹10,201)</label>
+                            </div>
+
+                            <div class="vec-gita-option">
+                                <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="21601"
+                                       id="success-outlined-vec-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-vec-3">108 Students
+                                    (₹21,601)</label>
+                            </div>
+
+                            <!--                        <div class="gita-option">-->
+                            <!--                            <label for="numberInput">Choose yourself:</label>-->
+                            <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
+                            <!--                        </div>-->
+                            <button type="button" class="btn btn-light w-100" id="vec-donate-btn" disabled>Donate
+                            </button>
+                        </form>
+                    </div>
                 </div>
-
-                <div class="text p-3 choose-option" id="vec-choose">
-                    <form>
-                        <div class="vec-gita-option">
-                            <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="2201" id="success-outlined-vec" autocomplete="off">
-                            <label class="btn btn-outline-success" for="success-outlined-vec">11 Students (₹2201)</label>
-                        </div>
-
-                        <div class="vec-gita-option">
-                            <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="5001" id="success-outlined-vec-1" autocomplete="off">
-                            <label class="btn btn-outline-success" for="success-outlined-vec-1">25 Students (₹5,001)</label>
-                        </div>
-
-                        <div class="vec-gita-option">
-                            <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="10201" id="success-outlined-vec-2" autocomplete="off">
-                            <label class="btn btn-outline-success" for="success-outlined-vec-2">51 Students (₹10,201)</label>
-                        </div>
-
-                        <div class="vec-gita-option">
-                            <input type="radio" class="btn-check btn-light" name="vec-gita-option" value="21601" id="success-outlined-vec-3" autocomplete="off">
-                            <label class="btn btn-outline-success" for="success-outlined-vec-3">108 Students (₹21,601)</label>
-                        </div>
-
-                        <!--                        <div class="gita-option">-->
-                        <!--                            <label for="numberInput">Choose yourself:</label>-->
-                        <!--                            <input type="number" id="numberInput" placeholder="Number of Gita " min="5">-->
-                        <!--                        </div>-->
-                        <button type="button" class="btn btn-light w-100" id="vec-donate-btn" disabled>Donate</button>
-                    </form>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -769,7 +800,8 @@
                 </button>
                 <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
                 </div>
 
 
@@ -790,7 +822,7 @@
         <div class="row d-flex">
             <div class="col-md-6 col-lg-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                        style="background-image: url('https://jivadaya.github.io/assets/img/donate/image_1.jpg');">
                     </a>
                     <div class="text p-4">
@@ -800,15 +832,16 @@
                             <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                         </div>
                         <h3 class="heading"><a href="#">The Essence of &amp; Shastra Daan</a></h3>
-                        <p>Shastra Daan is the greatest gift, offering knowledge that leads to eternal peace and fulfillment</p>
+                        <p>Shastra Daan is the greatest gift, offering knowledge that leads to eternal peace and
+                            fulfillment</p>
                         <p class="btn btn-secondary video-btn" data-toggle="modal"
-                              data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
+                           data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                        style="background-image: url('https://jivadaya.github.io/assets/img/donate/image_2.jpg');">
                     </a>
                     <div class="text p-4">
@@ -817,7 +850,7 @@
                             <div><a href="#">Admin</a></div>
                             <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                         </div>
-                        <h3 class="heading"><a href="#">Spiritual  &amp; Enlightenment</a></h3>
+                        <h3 class="heading"><a href="#">Spiritual &amp; Enlightenment</a></h3>
                         <p>By giving Shastra Daan, we illuminate the path of others toward spiritual enlightenment.</p>
                         <p class="btn btn-secondary video-btn" data-toggle="modal"
                            data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
@@ -826,17 +859,19 @@
             </div>
             <div class="col-md-6 col-lg-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                        style="background-image: url('https://jivadaya.github.io/assets/img/donate/image_3.jpg');">
                     </a>
                     <div class="text p-4">
                         <div class="meta mb-2">
                             <div><a href="#">July 20, 2020</a></div>
                             <div><a href="#">Admin</a></div>
-                            <div><a href="https://youtube.com/jivadaya" target="_blank" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                            <div><a href="https://youtube.com/jivadaya" target="_blank" class="meta-chat"><span
+                                    class="fa fa-comment"></span> 3</a></div>
                         </div>
-                        <h3 class="heading"><a href="#">The Power of  &amp; Knowledge</a></h3>
-                        <p>Knowledge is the most potent weapon for transformation; Shastra Daan empowers individuals to change their lives</p>
+                        <h3 class="heading"><a href="#">The Power of &amp; Knowledge</a></h3>
+                        <p>Knowledge is the most potent weapon for transformation; Shastra Daan empowers individuals to
+                            change their lives</p>
                         <p class="btn btn-secondary video-btn" data-toggle="modal"
                            data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
@@ -844,7 +879,8 @@
             </div>
             <div class="col-md-6 col-lg-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('https://jivadaya.github.io/assets/img/donate/image_4.jpg');">
+                    <a href="#" class="block-20"
+                       style="background-image: url('https://jivadaya.github.io/assets/img/donate/image_4.jpg');">
                     </a>
                     <div class="text p-4">
                         <div class="meta mb-2">
@@ -852,8 +888,9 @@
                             <div><a href="#">Admin</a></div>
                             <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                         </div>
-                        <h3 class="heading"><a href="#"> Charity of &amp;  Wisdom</a></h3>
-                        <p>Shastra Daan represents the charity of wisdom, fostering a deep understanding of life’s ultimate truths.</p>
+                        <h3 class="heading"><a href="#"> Charity of &amp; Wisdom</a></h3>
+                        <p>Shastra Daan represents the charity of wisdom, fostering a deep understanding of life’s
+                            ultimate truths.</p>
                         <p class="btn btn-secondary video-btn" data-toggle="modal"
                            data-src="https://www.youtube.com/embed/Nx25_uDDhY0" data-target="#myModal">Watch</p>
                     </div>
@@ -945,7 +982,8 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </p>
-                                <p>"The more we distribute books, the more we serve the mission of spreading Krishna consciousness."</p>
+                                <p>"The more we distribute books, the more we serve the mission of spreading Krishna
+                                    consciousness."</p>
                                 <p class="name">HH Gopal Krishna Goswami</p>
                                 <span class="position">GBC,BBT Trustee</span>
                             </div>
@@ -967,7 +1005,8 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </p>
-                                <p>"Distributing spiritual knowledge through books is an act of compassion that can transform lives."</p>
+                                <p>"Distributing spiritual knowledge through books is an act of compassion that can
+                                    transform lives."</p>
                                 <p class="name">HH Radhanath Swami</p>
                                 <span class="position">GBC,Author</span>
                             </div>
@@ -1066,7 +1105,8 @@
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <h2 class="footer-heading">Jivadaya ISKCON PUNE</h2>
-                <p>Brings the light of spiritual wisdom to every heart, distributing Srila Prabhupada’s books across villages and schools, inspiring lives with timeless knowledge and peace.</p>
+                <p>Brings the light of spiritual wisdom to every heart, distributing Srila Prabhupada’s books across
+                    villages and schools, inspiring lives with timeless knowledge and peace.</p>
                 <ul class="ftco-footer-social p-0">
                     <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top"
                                                 title="Twitter"><span class="fa fa-twitter"></span></a></li>
