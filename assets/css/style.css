@@ -10238,43 +10238,83 @@ textarea.form-control {
   opacity:1;
 }
 
+/* Default styles for the .meta container */
+.meta {
+  flex-direction: left;
+  display: flex;
+  
+  justify-content: start;
+  align-items: start;
+  height: 100%; /* Ensure the parent container stretches fully */
+}
+.meta-container .button-video span.fa-play {
+  font-size: 16px; /* Adjust the size as needed */
+}
 
-@media (max-width: 1080px) {
+/* When the screen width is 768px or less */
+@media screen and (max-width: 768px) {
+  .meta {
+    
+      flex-direction: column; /* Stack items vertically */
+      justify-content: flex-end; /* Push items to the bottom */
+      align-items: center; /* Center horizontally */
+      height: 100vh; /* Take full screen height */
+      padding-bottom: 20px; /* Add spacing from the bottom */
+  }
+
+  .donate-section,
+  .button-link {
+      margin-bottom: 15px; /* Add spacing between the elements */
+      text-align: center; /* Center the content */
+      width: auto;
+  }
+}
+.meta-container .button-video span.fa-play {
+  font-size: 8px; /* Adjust the size as needed */
+}
+
+
+@media (max-width: 768px) {
+  .overlay-1, .overlay-2, .overlay-3, .overlay-4 {
+      display: none; /* Hides the overlays on mobile */
+  }
+
   #form-container {
-    display: flex;
-    flex-direction: column;
+      display: flex;
+      flex-direction: column;
   }
 
   #row1 {
-   order: 3
+      order: 3;
   }
-
 
   #row2 {
-    order: 1
+      order: 1;
   }
 
-
   #row3 {
-    order: 2
+      order: 2;
+  }
+
+  #slider1, #slider2, #slider3 {
+      background-size: cover;           /* Ensures the image covers the container */
+      background-repeat: no-repeat;     /* Prevents tiling of the image */
+      background-position: top center;  /* Aligns the image to the top and centers it horizontally */
   }
 
   #slider1 {
-    background-image:url("https://jivadaya.github.io/assets/img/donate/mobile-bg-new.jpg") !important;
-    background-image:url("../../assets/img/donate/mobile-bg-new.jpg") !important;
+      background-image: url("../../assets/img/donate/mobile-bg-new.jpg") !important;
   }
 
   #slider2 {
-    background-image:url("https://jivadaya.github.io/assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
-    background-image:url("../../assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
+      background-image: url("../../assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
   }
 
   #slider3 {
-    background-image:url("https://jivadaya.github.io/assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
-    background-image:url("../../assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
+      background-image: url("../../assets/img/donate/ThisGitaJayanti-GivechancetootherstogetMOBILEVIEW.jpg") !important;
   }
-}
 
-.choose-option {
-  display: none;
+  .choose-option {
+      display: none;
+  }
 }
