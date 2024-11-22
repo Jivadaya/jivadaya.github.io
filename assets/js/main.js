@@ -209,6 +209,9 @@
 
 $(document).ready(function() {
 	let referrer = window.location.pathname.split('/').at(-1);
+	if (referrer == "") {
+		referrer = "N156473" // default jivadaya referrer id;
+	}
 	console.log("Referrer: ", referrer);
 	$("#referrer").val(referrer);
 	document.getElementById('referred_by').innerText = referrer;
