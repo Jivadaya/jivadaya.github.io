@@ -10280,6 +10280,11 @@ textarea.form-control {
   .overlay-1, .overlay-2, .overlay-3, .overlay-4 {
       display: none; /* Hides the overlays on mobile */
   }
+  @media (max-width: 768px) {
+    div[style*="display: flex"] {
+        flex-direction: column;
+    }
+}
 
   #form-container {
       display: flex;
