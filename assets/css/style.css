@@ -10243,7 +10243,7 @@ textarea.form-control {
   
   justify-content: start;
   align-items: start;
-  height: 100%; 8Ensure the parent container stretches fully
+  height: 100%; /* Ensure the parent container stretches fully */
 }
 .meta-container .button-video span.fa-play {
   font-size: 16px; /* Adjust the size as needed */
@@ -10255,14 +10255,14 @@ textarea.form-control {
 
 /* When the screen width is 768px or less */
 @media screen and (max-width: 768px) {
-  /* .meta {
-    
-      flex-direction: column; /* Stack items vertically */
-      justify-content: flex-end; /* Push items to the bottom */
-      align-items: center; /* Center horizontally */
-      height: 100vh; /* Take full screen height */
-      padding-bottom: 20px; /* Add spacing from the bottom */
-  } */
+  /*!* .meta {*/
+  /*  */
+  /*    flex-direction: column; !* Stack items vertically *!*/
+  /*    justify-content: flex-end; !* Push items to the bottom *!*/
+  /*    align-items: center; !* Center horizontally *!*/
+  /*    height: 100vh; !* Take full screen height *!*/
+  /*    padding-bottom: 20px; !* Add spacing from the bottom *!*/
+  /*} *!*/
 
   .donate-section,
   .button-link {
@@ -10272,7 +10272,7 @@ textarea.form-control {
   }
 }
 .meta-container .button-video span.fa-play {
-  font-size: 8px; Adjust the size as needed
+  font-size: 8px; /* Adjust the size as needed */
 }
 
 

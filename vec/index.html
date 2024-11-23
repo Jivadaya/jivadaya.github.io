@@ -22,7 +22,7 @@
     min-height: 100vh;
     /* Background image */
     background: linear-gradient(rgba(43, 126, 168, 0.1), rgba(43, 126, 168, 0.653)), 
-                url('images/background.jpg'); /* Update the file extension if it's an image */
+                url('https://jivadaya.github.io/assets/img/vec/background.jpg'); /* Update the file extension if it's an image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center; /* Centers the image */
     background-attachment: fixed; /* Keeps the image fixed during scroll */
@@ -121,16 +121,16 @@
 </head>
 <body>
     <div class="login-form">
-        <img src="jivadaya_logo.png" alt="Jivadaya">
+        <img src="https://jivadaya.github.io/assets/img/jivadaya/jivadaya_logo.png" alt="Jivadaya">
         <h2>Value Education Contest</h2>
-        <form method="post" action="https://www.brocelle.in/auth">
-            <input type="text" name="name_field" placeholder="Student Name" required autofocus>
+        <form method="post" action="./request.php">
+            <input type="text" name="name" placeholder="Student Name" required autofocus>
             
             <!-- School dropdown with updated styling -->
-            <select name="receipt_name_field" id="schoolDropdown" required>
+            <select name="school" id="schoolDropdown" required>
                 <option value="" disabled selected>Select a school</option>
             </select>
-            <select name="receipt_name_field" id="schoolDropdown" required>
+            <select name="class" id="classDropdown" required>
                 <option value="" disabled selected>Select Your class</option>
                 <option value="5th">5th</option>
                 <option value="5th">6th</option>
@@ -139,20 +139,11 @@
                 <option value="5th">9th</option>
                 <option value="5th">10th</option>
             </select>
-            <input type="Division" name="Division" placeholder="Division" required>
+            <input type="text" name="division" placeholder="Division" required>
             <input type="text" name="mobile" placeholder="Mobile">
-            <input type="number" name="amount" placeholder="Amount" value="250" required>
-            <!-- <div class="radio-buttons">
-                <div class="radio-option">
-                    <input type="radio" name="pg" id="radio1" value="cc_avenue" checked>
-                    <label for="radio1">CC Avenue (UPI Only)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" name="pg" id="radio2" value="razorpay">
-                    <label for="radio2">Razorpay (Non UPI)</label>
-                </div>
-            </div> -->
-            <button type="submit">Pay</button>
+            <p>Registration Fee: 250</p>
+            <input type="hidden" name="referrer" id="referrer" value="">
+            <button type="submit">Register & Pay</button>
         </form>
     </div>
     
