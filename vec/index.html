@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Background image */
+    background: linear-gradient(rgba(43, 126, 168, 0.1), rgba(43, 126, 168, 0.653)), 
+                url('images/background.jpg'); /* Update the file extension if it's an image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the image fixed during scroll */
+}
+
+
+        .login-form {
+            width: 80%;
+            max-width: 500px;
+            padding: 2rem;
+            background: #eefaff;
+            border-radius: 1rem;
+            border: 1px solid #3ba0d3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: scale(0.90);
+        }
+
+        .login-form img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .login-form h2 {
+            font-size: 1.8rem;
+            color: #3ba0d3;
+            margin-bottom: 1rem;
+        }
+
+        .login-form input,
+        .login-form button,
+        .login-form select {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #3ba0d3;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .login-form input:focus,
+        .login-form select:focus {
+            border-color: #3ba0d3;
+            box-shadow: 0 0 5px rgba(59, 160, 211, 0.5);
+        }
+
+        .login-form button {
+            background: #3ba0d3;
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #2c8ab5;
+        }
+
+        .radio-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .login-form {
+                padding: 1.5rem;
+            }
+
+            .login-form h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .login-form {
+                padding: 1rem;
+            }
+
+            .login-form h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <img src="jivadaya_logo.png" alt="Jivadaya">
+        <h2>Value Education Contest</h2>
+        <form method="post" action="https://www.brocelle.in/auth">
+            <input type="text" name="name_field" placeholder="Student Name" required autofocus>
+            
+            <!-- School dropdown with updated styling -->
+            <select name="receipt_name_field" id="schoolDropdown" required>
+                <option value="" disabled selected>Select a school</option>
+            </select>
+            <select name="receipt_name_field" id="schoolDropdown" required>
+                <option value="" disabled selected>Select Your class</option>
+                <option value="5th">5th</option>
+                <option value="5th">6th</option>
+                <option value="5th">7th</option>
+                <option value="5th">8th</option>
+                <option value="5th">9th</option>
+                <option value="5th">10th</option>
+            </select>
+            <input type="Division" name="Division" placeholder="Division" required>
+            <!-- <input type="text" name="mobile" placeholder="Mobile" required> -->
+            <input type="number" name="amount" placeholder="Amount" required>
+            <div class="radio-buttons">
+                <div class="radio-option">
+                    <input type="radio" name="pg" id="radio1" value="cc_avenue" checked>
+                    <label for="radio1">CC Avenue (UPI Only)</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="pg" id="radio2" value="razorpay">
+                    <label for="radio2">Razorpay (Non UPI)</label>
+                </div>
+            </div>
+            <button type="submit">Pay</button>
+        </form>
+    </div>
+    
+
+    <script>
+        const sheetUrl = "https://script.google.com/macros/s/AKfycbwTQZYUl5av3FVt0q15DFG12RLUOFl-q3xT_5duhLZJo2iLBTbOQAuXWsfFLp4oDeNq/exec";
+
+        fetch(sheetUrl)
+          .then(response => response.json())
+          .then(data => {
+            const dropdown = document.getElementById("schoolDropdown");
+
+            data.forEach(schoolName => {
+              if (schoolName) {
+                const option = document.createElement("option");
+                option.value = schoolName;
+                option.textContent = schoolName;
+                dropdown.appendChild(option);
+              }
+            });
+          })
+          .catch(error => {
+            console.error("Error fetching data:", error);
+            alert("There was an error loading the school names.");
+          });
+    </script>
+</body>
+</html>

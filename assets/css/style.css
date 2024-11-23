@@ -10243,7 +10243,7 @@ textarea.form-control {
   
   justify-content: start;
   align-items: start;
-  height: 100%; /* Ensure the parent container stretches fully */
+  height: 100%; 8Ensure the parent container stretches fully
 }
 .meta-container .button-video span.fa-play {
   font-size: 16px; /* Adjust the size as needed */
@@ -10272,7 +10272,7 @@ textarea.form-control {
   }
 }
 .meta-container .button-video span.fa-play {
-  font-size: 8px; /* Adjust the size as needed */
+  font-size: 8px; Adjust the size as needed
 }
 
 
