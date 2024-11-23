@@ -234,6 +234,8 @@ $(document).ready(function() {
 		// a poor man's stop video
 		$("#video").attr('src',$videoSrc);
 	})
+
+	resetAll();
 });
 
 let schemes = ["shastra-daan", "sb", "monk", "vec"];
