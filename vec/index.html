@@ -129,9 +129,15 @@
             <input type="text" name="name" placeholder="Student Name" required autofocus>
 
             <!-- School dropdown with updated styling -->
+            <select name="city" id="city" required>
+                <option value="" disabled selected>Select your city</option>
+            </select>
+
             <select name="school" id="schoolDropdown" required>
                 <option value="" disabled selected>Select a school</option>
             </select>
+
+
             <select name="class" id="classDropdown" required>
                 <option value="" disabled selected>Select Your class</option>
                 <option value="5th">5th</option>
@@ -150,26 +156,62 @@
 
     <script src="https://jivadaya.github.io/assets/js/jquery.min.js"></script>
     <script>
-        const sheetUrl = "https://script.google.com/macros/s/AKfycbwmezwqOYJ_HAg23T-r-n7EONMrm8Vp20a4cLr6luIkOSG50aQyDdPKSAbo8V10A05ZRw/exec";
 
-        fetch(sheetUrl)
-          .then(response => response.json())
-          .then(data => {
-            const dropdown = document.getElementById("schoolDropdown");
+        function removeOptions(selectElement) {
+            var i, L = selectElement.options.length - 1;
+            for(i = L; i > 0; i--) {
+                selectElement.remove(i);
+            }
+        }
 
-            data.forEach(schoolName => {
-              if (schoolName) {
-                const option = document.createElement("option");
-                option.value = schoolName;
-                option.textContent = schoolName;
-                dropdown.appendChild(option);
-              }
+        const sheetUrl = "https://script.google.com/macros/s/AKfycbzAKk-jeiwX1L0L6KfG-5q3zAW3oHXYcoTxBNgj63V9LzxA3kUpOzUPuVSa_ILdjK1niA/exec?";
+
+        const url = sheetUrl + "operation=getcities";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const dropdown = document.getElementById("city");
+
+                data.forEach(cityName => {
+                    if (cityName) {
+                        const option = document.createElement("option");
+                        option.value = cityName;
+                        option.textContent = cityName;
+                        dropdown.appendChild(option);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                alert("There was an error loading the city names.");
             });
-          })
-          .catch(error => {
-            console.error("Error fetching data:", error);
-            alert("There was an error loading the school names.");
-          });
+
+        $('#city').change(function (e) {
+            removeOptions(document.getElementById("schoolDropdown"));
+            let chosenCity = $(e.target).find(":selected").text();
+            console.log("Selected city: " + chosenCity);
+            const url = sheetUrl + "operation=getschoolforcity&city=" + chosenCity;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const dropdown = document.getElementById("schoolDropdown");
+
+                    data.forEach(schoolName => {
+                        if (schoolName) {
+                            const option = document.createElement("option");
+                            option.value = schoolName;
+                            option.textContent = schoolName;
+                            dropdown.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    alert("There was an error loading the school names.");
+                });
+        });
+
+
 
         $(document).ready(function() {
             const urlParams = new URLSearchParams(window.location.search);
