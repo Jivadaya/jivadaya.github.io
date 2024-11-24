@@ -124,6 +124,7 @@
         <img src="https://jivadaya.github.io/assets/img/jivadaya/jivadaya_logo.png" alt="Jivadaya">
         <h2>Value Education Contest</h2>
         <form method="post" action="./request.php">
+            <p style="color:#ffffff; text-align: center;">Referred by: <span id="referred_by">None</span>
             <input type="text" name="name" placeholder="Student Name" required autofocus>
             
             <!-- School dropdown with updated styling -->
@@ -133,11 +134,11 @@
             <select name="class" id="classDropdown" required>
                 <option value="" disabled selected>Select Your class</option>
                 <option value="5th">5th</option>
-                <option value="5th">6th</option>
-                <option value="5th">7th</option>
-                <option value="5th">8th</option>
-                <option value="5th">9th</option>
-                <option value="5th">10th</option>
+                <option value="6th">6th</option>
+                <option value="7th">7th</option>
+                <option value="8th">8th</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
             </select>
             <input type="text" name="division" placeholder="Division" required>
             <input type="text" name="mobile" placeholder="Mobile">
@@ -146,8 +147,8 @@
             <button type="submit">Register & Pay</button>
         </form>
     </div>
-    
 
+    <script src="https://jivadaya.github.io/assets/js/jquery.min.js"></script>
     <script>
         const sheetUrl = "https://script.google.com/macros/s/AKfycbwTQZYUl5av3FVt0q15DFG12RLUOFl-q3xT_5duhLZJo2iLBTbOQAuXWsfFLp4oDeNq/exec";
 
@@ -169,6 +170,16 @@
             console.error("Error fetching data:", error);
             alert("There was an error loading the school names.");
           });
+
+        $(document).ready(function() {
+            let referrer = window.location.pathname.split('/').at(-1);
+            if (referrer == "") {
+                referrer = "N156473" // default jivadaya referrer id;
+            }
+            console.log("Referrer: ", referrer);
+            $("#referrer").val(referrer);
+            document.getElementById('referred_by').innerText = referrer;
+        })
     </script>
 </body>
 </html>
