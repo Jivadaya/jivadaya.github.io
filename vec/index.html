@@ -125,6 +125,7 @@
         <h2>Value Education Contest</h2>
         <form method="post" action="./request.php">
             <p style="text-align: center; padding-bottom: 10px;">Referred by: <span id="referred_by">None</span></p>
+            <input type="hidden" id="referrer-name-field" name="name_field" placeholder="Referred By" required readonly pattern="[a-zA-Z0-9\- ]{5,}" value="">
             <input type="text" name="name" placeholder="Student Name" required autofocus>
 
             <!-- School dropdown with updated styling -->
@@ -172,13 +173,15 @@
           });
 
         $(document).ready(function() {
-            let referrer = window.location.pathname.split('/').at(-1);
+            const urlParams = new URLSearchParams(window.location.search);
+            let referrer = urlParams.get('r');
             if (referrer == "") {
-                referrer = "N156473" // default jivadaya referrer id;
+                referrer = "N156473 - Jivadaya Collection" // default jivadaya referrer id;
             }
             console.log("Referrer: ", referrer);
             $("#referrer").val(referrer);
-            document.getElementById('referred_by').innerText = referrer;
+            document.getElementById('referred_by').innerText = referrer.split("-")[1];
+            document.getElementById('referrer-name-field').value = referrer;
         })
     </script>
 </body>
