@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Form</title>
+    <title>Value Education Contest Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -117,28 +117,68 @@
                 font-size: 1.4rem;
             }
         }
+
+        #loading {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+            background-color: #fff;
+            z-index: 99;
+        }
+
+        #loading-image {
+            position: absolute;
+            top: 100px;
+            left: 240px;
+            z-index: 100;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
     <div class="login-form">
         <img src="https://jivadaya.github.io/assets/img/jivadaya/jivadaya_logo.png" alt="Jivadaya">
         <h2>Value Education Contest</h2>
         <form method="post" action="./request.php">
-            <p style="text-align: center; padding-bottom: 10px;">Referred by: <span id="referred_by">None</span></p>
             <input type="hidden" id="referrer-name-field" name="name_field" placeholder="Referred By" required readonly pattern="[a-zA-Z0-9\- ]{5,}" value="">
+            <input type="hidden" id="amount" name="amount" placeholder="Amount" required readonly pattern="[0-9]{3,}" value="">
+
             <input type="text" name="name" placeholder="Student Name" required autofocus>
 
             <!-- School dropdown with updated styling -->
-            <select name="city" id="city" required>
+            <select name="city" id="city" required autocomplete="off">
                 <option value="" disabled selected>Select your city</option>
             </select>
 
-            <select name="school" id="schoolDropdown" required>
+            <select name="school" id="schoolDropdown" required autocomplete="off">
                 <option value="" disabled selected>Select a school</option>
             </select>
 
 
-            <select name="class" id="classDropdown" required>
+            <select name="class" id="classDropdown" required autocomplete="off">
                 <option value="" disabled selected>Select Your class</option>
                 <option value="5th">5th</option>
                 <option value="6th">6th</option>
@@ -149,81 +189,91 @@
             </select>
             <input type="text" name="division" placeholder="Division" required>
             <input type="text" name="mobile" placeholder="Mobile">
-            <p>Registration Fee: 250</p>
+            <p style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;" id="referrer-display">Referred by: <span id="referred_by">None</span></p>
+<!--            <p id="fee-display" style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;">Registration Fee: <span id="fee">0</span></p>-->
+
             <button type="submit">Register & Pay</button>
         </form>
     </div>
 
     <script src="https://jivadaya.github.io/assets/js/jquery.min.js"></script>
-    <script>
+</body>
+<script>
 
-        function removeOptions(selectElement) {
-            var i, L = selectElement.options.length - 1;
-            for(i = L; i > 0; i--) {
-                selectElement.remove(i);
-            }
+    function removeOptions(selectElement) {
+        var i, L = selectElement.options.length - 1;
+        for(i = L; i > 0; i--) {
+            selectElement.remove(i);
         }
+    }
 
-        const sheetUrl = "https://script.google.com/macros/s/AKfycbzAKk-jeiwX1L0L6KfG-5q3zAW3oHXYcoTxBNgj63V9LzxA3kUpOzUPuVSa_ILdjK1niA/exec?";
+    const sheetUrl = "https://script.google.com/macros/s/AKfycbzAKk-jeiwX1L0L6KfG-5q3zAW3oHXYcoTxBNgj63V9LzxA3kUpOzUPuVSa_ILdjK1niA/exec";
+    var schoolData = [];
+    fetch(sheetUrl)
+        .then(response => response.json())
+        .then(data => {
+            schoolData = data;
 
-        const url = sheetUrl + "operation=getcities";
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const dropdown = document.getElementById("city");
-
-                data.forEach(cityName => {
-                    if (cityName) {
-                        const option = document.createElement("option");
-                        option.value = cityName;
-                        option.textContent = cityName;
-                        dropdown.appendChild(option);
-                    }
-                });
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-                alert("There was an error loading the city names.");
+            let cities = [... new Set(schoolData.map(entry => entry["city"]))];
+            const dropdown = document.getElementById("city");
+            cities.forEach(cityName => {
+                if (cityName) {
+                    const option = document.createElement("option");
+                    option.value = cityName;
+                    option.textContent = cityName;
+                    dropdown.appendChild(option);
+                }
             });
-
-        $('#city').change(function (e) {
-            removeOptions(document.getElementById("schoolDropdown"));
-            let chosenCity = $(e.target).find(":selected").text();
-            console.log("Selected city: " + chosenCity);
-            const url = sheetUrl + "operation=getschoolforcity&city=" + chosenCity;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const dropdown = document.getElementById("schoolDropdown");
-
-                    data.forEach(schoolName => {
-                        if (schoolName) {
-                            const option = document.createElement("option");
-                            option.value = schoolName;
-                            option.textContent = schoolName;
-                            dropdown.appendChild(option);
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error("Error fetching data:", error);
-                    alert("There was an error loading the school names.");
-                });
+            document.getElementById("loading").style.display = "none";
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            alert("There was an error loading the city names. Please refresh the page.");
+            location.reload()
         });
 
+    $('#city').change(function (e) {
+        removeOptions(document.getElementById("schoolDropdown"));
+        let chosenCity = $(e.target).find(":selected").text();
+        console.log("Selected city: " + chosenCity);
 
+        const dropdown = document.getElementById("schoolDropdown");
+        let schoolsInCity = schoolData.filter(function (entry){
+            return entry["city"] === chosenCity
+        }).map(entry => entry["school"]);
 
-        $(document).ready(function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            let referrer = urlParams.get('r');
-            if (!referrer) {
-                referrer = "N156473 - Jivadaya Collection" // default jivadaya referrer id;
+        schoolsInCity.forEach(schoolName => {
+            if (schoolName) {
+                const option = document.createElement("option");
+                option.value = schoolName;
+                option.textContent = schoolName;
+                dropdown.appendChild(option);
             }
-            console.log("Referrer: ", referrer);
-            $("#referrer").val(referrer);
-            document.getElementById('referred_by').innerText = referrer.split("-")[1];
-            document.getElementById('referrer-name-field').value = referrer;
+        });
+
+    });
+
+    $('#schoolDropdown').change(function (e) {
+        let chosenCity = $("#city").find(":selected").text();
+        console.log("Selected city: " + chosenCity);
+        let chosenSchool = $("#schoolDropdown").find(":selected").text();
+        console.log("Selected school: " + chosenSchool);
+
+        let entries = schoolData.filter(function (entry) {
+            return entry["city"]===chosenCity && entry["school"]===chosenSchool;
         })
-    </script>
-</body>
+
+        let fee = entries[0]["fee"];
+        let referrer = entries[0]["ledger"];
+        if (!referrer) {
+            referrer = "N156473 - Jivadaya Collection" // default jivadaya referrer id;
+        }
+        document.getElementById('referred_by').innerText = referrer.split("-")[1];
+        document.getElementById('referrer-name-field').value = referrer;
+        document.getElementById('amount').value = fee;
+        // document.getElementById('fee').innerText = fee;
+        document.getElementById('referrer-display').style.display = "block";
+        // document.getElementById('fee-display').style.display = "block";
+    });
+</script>
 </html>
