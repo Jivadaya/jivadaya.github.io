@@ -10280,6 +10280,11 @@ textarea.form-control {
   .overlay-1, .overlay-2, .overlay-3, .overlay-4 {
       display: none; /* Hides the overlays on mobile */
   }
+  @media (max-width: 768px) {
+    div[style*="display: flex"] {
+        flex-direction: column;
+    }
+}
 
   #form-container {
       display: flex;
@@ -10320,4 +10325,15 @@ textarea.form-control {
   .choose-option {
       display: none;
   }
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 -10px #ffffff; }
+  40% { box-shadow: 0 0 25px #ffffff; }
+  60% { box-shadow: 0 0 25px #ffffff; }
+  100% { box-shadow: 0 0 -10px #ffffff; }
+}
+
+.btn-glow {
+  animation: glowing 1800ms infinite;
 }
