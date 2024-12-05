@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://jivadaya.github.io/assets/img/common/iskcon_logo_light.png">
     <title>Value Education Contest Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -190,6 +191,9 @@
             </select>
             <input type="text" name="division" placeholder="Division" required>
             <input type="text" name="mobile" placeholder="Mobile">
+            <select name="language" id="languageDropdown" autocomplete="off"  style="display: none;">
+                <option value="" disabled selected>Select your preferred language</option>
+            </select>
             <p style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;" id="referrer-display">Referred by: <span id="referred_by">None</span></p>
 <!--            <p id="fee-display" style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;">Registration Fee: <span id="fee">0</span></p>-->
 
@@ -235,6 +239,8 @@
 
     $('#city').change(function (e) {
         removeOptions(document.getElementById("schoolDropdown"));
+        removeOptions(document.getElementById("languageDropdown"));
+
         let chosenCity = $(e.target).find(":selected").text();
         console.log("Selected city: " + chosenCity);
 
@@ -275,6 +281,24 @@
         // document.getElementById('fee').innerText = fee;
         document.getElementById('referrer-display').style.display = "block";
         // document.getElementById('fee-display').style.display = "block";
+
+        let languages = entries[0]["languages"];
+        if (!languages.length) {
+            document.getElementById("languageDropdown").style.display = "none";
+        } else {
+            let languageDropdown = document.getElementById("languageDropdown")
+            languageDropdown.style.display = "block";
+            languageDropdown.required = true;
+            languages.forEach(language => {
+                if (language) {
+                    const option = document.createElement("option");
+                    option.value = language;
+                    option.textContent = language;
+                    languageDropdown.appendChild(option);
+                }
+            });
+        }
+
     });
 </script>
 </html>
