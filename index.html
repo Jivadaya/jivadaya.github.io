@@ -722,23 +722,147 @@ style="position: sticky;
         </div>
     </div>
 </section>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    .donation-container {
+        text-align: center;
+        padding: 20px;
+    }
+        .donation-container h1 {
+        font-size: 2.5rem; /* Larger font size */
+        color: #d32f2f; /* Bright red color */
+        font-weight: bold;
+        text-transform: uppercase; /* Capitalize all letters */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+        margin-bottom: 20px;
+        }
+        .donation-container h1 span {
+            color: #ff5722; /* Optional: Use a secondary red/orange color for emphasis */
+        }
 
-<!-- <section class="ftco-section ftco-no-pb">
-    <div class="container"> -->
-    <!-- <div class="col-md-7 heading-section text-center ftco-animate" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span class="subheading" style="text-align: center;">Donate</span>
-        <h2 style="text-align: center;">Support book distribution at Kumbh Mela, spreading wisdom and light.</h2>
-    </div>
-    </div></section> -->
-    <!-- <section class="ftco-section"> -->
-        <!-- <div class="container"> -->
-            <!-- <div class="row justify-content-center pb-1 mb-1">
+    .image-container {
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    .image-container img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .donation-boxes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .donation-box {
+        flex: 1;
+        height : 100%; */
+         /* max-width: 120px; */ */
+        min-width: 150px;
+        background-color: #fff;
+        border: 1px solid #230000;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+    .donation-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .donation-box h3 {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #340044;
+        margin-bottom: 10px;
+    }
+    .donation-box p {
+        font-size: 1rem;
+        margin: 10px 0;
+        color: #333;
+    }
+    .donation-box p span {
+        font-weight: bold;
+        color: #4e006c;
+    }
+    .donation-box button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #64008d;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .donation-box button:hover {
+        background-color: #4e006c;
+    }
+    @media (max-width: 768px) {
+        .donation-boxes {
+            flex-direction: column;
+        }
+        .donation-box {
+            max-width: 100%;
+        }
+    }
+    
+</style>
+
+    <section class="" style="padding-top: 20px; margin-top: 5px;" style="padding-bottom: 10px;margin-bottom: 5px;"> 
+        <div class="container">
+            <div class="row justify-content-center pb-1 mb-1">
                 <div class="col-md-10 heading-section text-center ftco-animate">
                     <span class="subheading">Donate Now</span>
                     <h2>Support book distribution at Kumbh Mela, spreading wisdom and light.</h2>
                 </div>
-            </div> -->
-        <!-- </section> -->
+            </div>
+                </section>
+        <section class="donation-container">
+            <!-- Title -->
+            <!-- <h1>Support Shastra Daan at Kumbh Mela</h1> -->
+            <!-- Image -->
+            <div class="image-container">
+                <img src="/My website/Donation format/Gita Dana_Prayagraj_2024_Eng_1920x1080 px_11zon.jpg" alt="Shastra Daan Image">
+            </div>
+            <!-- Donation Boxes -->
+            <div class="donation-boxes">
+                <div class="donation-box">
+                    <h3>₹2310</h3>
+                    <p><span>11 Bhagavad Gita</span></p>
+                    <a href="#donation-form"> <button value="2310" onclick="setDonationAmount(2310)">Donate ₹2,310</button></a>
+                </div>
+                <div class="donation-box">
+                    <h3>₹10710</h3>
+                    <p><span>51 Bhagavad Gita</span></p>
+                    <a href="#donation-form"> <button value="10710" onclick="setDonationAmount(10710)">Donate ₹10,710</button></a>
+                </div>
+                <div class="donation-box">
+                    <h3>₹22680</h3>
+                    <p><span>108 Bhagavad Gita</span></p>
+                    <a href="#donation-form"><button value="22680" onclick="setDonationAmount(22680)">Donate ₹22,680</button></a>
+                </div>
+            
+                <div class="donation-box">
+                    <h3>₹43680</h3>
+                    <p><span>208 Gitas</span></p>
+                    <a href="#donation-form"><button value="43680" onclick="setDonationAmount(43680)">Donate ₹43,680</button></a>
+                </div>
+                <div class="donation-box">
+                    <h3>Custom Amount</h3>
+                    <p>Enter your desired amount:</p>
+                    <input type="number" id="customAmount" placeholder="Enter amount" style="width: 80%; padding: 8px; margin-bottom: 10px; border: 2px solid #e0d8ec; border-radius: 5px;">
+                    <a href="#donation-form"><button value="number" onclick="setCustomAmount()" >Donate Now</button></a>
+                </div>
+            </div>
+        </section>
 <div style="position: relative; width: 100%; height: auto;">
     <!-- Transparent Overlay -->
     <!-- <div style="position: absolute;
@@ -1321,5 +1445,26 @@ style="position: sticky;
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="https://jivadaya.github.io/assets/js/google-map.js"></script>
 <script src="https://jivadaya.github.io/assets/js/main.js"></script>
+<script>
+    function setDonationAmount(amount) {
+        const amountField = document.getElementById("amount");
+        if (amountField) {
+            amountField.value = amount;
+        }
+    }
+
+    function setCustomAmount() {
+        const customAmountField = document.getElementById("customAmount");
+        const amountField = document.getElementById("amount");
+        if (customAmountField && amountField) {
+            const value = parseInt(customAmountField.value, 10);
+            if (value >= 210 && value <= 10000000) {
+                amountField.value = value;
+            } else {
+                alert("Please enter a valid amount between ₹210 and ₹10,000,000.");
+            }
+        }
+    }
+</script>
 </body>
 </html>
