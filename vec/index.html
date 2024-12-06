@@ -240,6 +240,7 @@
     $('#city').change(function (e) {
         removeOptions(document.getElementById("schoolDropdown"));
         removeOptions(document.getElementById("languageDropdown"));
+        document.getElementById("languageDropdown").style.display = "none";
 
         let chosenCity = $(e.target).find(":selected").text();
         console.log("Selected city: " + chosenCity);
@@ -261,6 +262,8 @@
     });
 
     $('#schoolDropdown').change(function (e) {
+        removeOptions(document.getElementById("languageDropdown"));
+
         let chosenCity = $("#city").find(":selected").text();
         console.log("Selected city: " + chosenCity);
         let chosenSchool = $("#schoolDropdown").find(":selected").text();
