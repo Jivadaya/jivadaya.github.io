@@ -32,6 +32,7 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
                 <p class="mb-0 phone pl-md-2">
+                    <a class="title">Jivadaya ISKCON PUNE NVCC</a>
                     <a href="https://wa.me/918380077622" target="_blank">
                         <span class="fa fa-whatsapp fa-lg" style="color:rgb(0, 255, 0);  margin-right:2px;"></span>
                         +91 8380077622
@@ -815,7 +816,34 @@ style="position: sticky;
     }
     
 </style>
+<style>
+    /* Hide mobile image by default */
+    .mobile-image {
+        display: none;
+    }
 
+    /* Mobile View: Show mobile image, hide desktop image */
+    @media (max-width: 768px) {
+        .desktop-image {
+            display: none !important;
+        }
+        .mobile-image {
+            display: block !important;
+            width: 100%; /* Responsive */
+        }
+    }
+
+    /* Desktop View: Ensure desktop image is visible */
+    @media (min-width: 769px) {
+        .desktop-image {
+            display: block !important;
+            width: 100%; /* Responsive */
+        }
+        .mobile-image {
+            display: none !important;
+        }
+    }
+</style>
     <section class="" style="padding-top: 20px; margin-top: 5px;" style="padding-bottom: 10px;margin-bottom: 5px;"> 
         <div class="container">
             <div class="row justify-content-center pb-1 mb-1">
@@ -830,7 +858,8 @@ style="position: sticky;
             <!-- <h1>Support Shastra Daan at Kumbh Mela</h1> -->
             <!-- Image -->
             <div class="image-container">
-                <img src="https://jivadaya.github.io/assets/img/donate/Gita Dana_Prayagraj_2024_Eng_1920x1080 px_11zon.jpg" alt="Shastra Daan Image">
+                <img src="assets/img/donate/Gita Dana_Prayagraj_2024_Eng_1920x1080 px_11zon.jpg" alt="Shastra Daan Image" class="desktop-image">
+                <img src="assets/img/donate/sdmobile.jpg" alt="Mobile Shastra Daan Image" class="mobile-image">
             </div>
             <!-- Donation Boxes -->
             <div class="donation-boxes">
