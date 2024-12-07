@@ -31,10 +31,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
-                <p class="mb-0 phone pl-md-2">
-                    <a class="title">Jivadaya ISKCON PUNE NVCC</a>
-                    <a href="https://wa.me/918380077622" target="_blank">
-                        <span class="fa fa-whatsapp fa-lg" style="color:rgb(0, 255, 0);  margin-right:2px;"></span>
+                <p class="mb-0 phone pl-md-20">
+                          <a href="https://wa.me/918380077622" target="_blank">
+                        <span class="fa fa-whatsapp fa-lg" style="color:rgb(0, 255, 0);  margin-right:5px;"></span>
                         +91 8380077622
                     </a>
                     <a href="mailto:jivadaya@iskconpune.in" class="email-link"><span class="icon fa fa-paper-plane"></span><span class="text">jivadaya@iskconpune.in</span></a>
@@ -749,13 +748,15 @@ style="position: sticky;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .donation-boxes {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-        margin-top: 20px;
-    }
+    /* Container Styling */
+.donation-boxes {
+    display: flex; /* Align items in a row */
+    justify-content: space-around; /* Distribute space evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between items */
+    margin: 20px auto;
+    padding: 20px;
+}
     .donation-box {
         flex: 1;
         height : 100%; */
@@ -857,35 +858,41 @@ style="position: sticky;
             <!-- Donation Boxes -->
             <div class="donation-boxes">
                 <div class="donation-box">
-                    <h3>₹4,200</h3>
-                    <p><span>20 Bhagavad Gita</span></p>
-                    <a href="#donation-form"> <button value="4200" onclick="setDonationAmount(4200)"><b>Donate ₹4,200</b></button></a>
+                    <h3 class="donation-amount">₹4,200</h3>
+                    <p class="donation-purpose">Help distribute <span>20 Bhagavad Gitas</span> to spiritual seekers.</p>
+                    <a href="#donation-form">
+                        <button value="4200" onclick="setDonationAmount(4200)"><b>Donate Now</b></button>
+                    </a>
                 </div>
+
                 <div class="donation-box">
                     <h3>₹10,500</h3>
-                    <p><span>50 Bhagavad Gita</span></p>
-                    <a href="#donation-form"> <button value="10500" onclick="setDonationAmount(10500)"><b>Donate ₹10,500</b></button></a>
+                    <p class="donation-purpose">Help distribute <span>50 Bhagavad Gitas</span> to spiritual seekers.</p>
+                    <a href="#donation-form"> 
+                        <button value="10500" onclick="setDonationAmount(10500)"><b>Donate Now</b></button>
+                    </a>
                 </div>
                 <div class="donation-box">
                     <h3>₹22,680</h3>
-                    <p><span>108 Bhagavad Gita</span></p>
-                    <a href="#donation-form"><button value="22680" onclick="setDonationAmount(22680)"><b>Donate ₹22,680</b></button></a>
+                    <p class="donation-purpose">Help distribute <span>108 Bhagavad Gitas</span> to spiritual seekers.</p>
+                    <a href="#donation-form"><button value="22680" onclick="setDonationAmount(22680)"><b>Donate Now</b></button></a>
                 </div>
             
                 <div class="donation-box">
                     <h3>₹43,680</h3>
-                    <p><span>208 Bhagavad Gita</span></p>
-                    <a href="#donation-form"><button value="43680" onclick="setDonationAmount(43680)"><b>Donate ₹43,680</b></button></a>
+                    <p class="donation-purpose">Help distribute <span>208 Bhagavad Gitas</span> to spiritual seekers.</p>
+                    <a href="#donation-form"><button value="43680" onclick="setDonationAmount(43680)"><b>Donate Now</b></button></a>
                 </div>
                 <div class="donation-box">
                     <h3>₹1,05,000</h3>
-                    <p><span>500 Bhagavad Gita</span></p>
-                    <a href="#donation-form"><button value="43680" onclick="setDonationAmount(105000)"><b>Donate ₹1,05,000</b></button></a>
+                    <p class="donation-purpose">Help distribute <span>500 Bhagavad Gitas</span> to spiritual seekers.</p>
+                    <a href="#donation-form"><button value="43680" onclick="setDonationAmount(105000)"><b>Donate Now</b></button></a>
                 </div>
                 <div class="donation-box">
                     <h3>Your Amount</h3>
+                    <p class="donation-purpose">Share the <span>Gift of Giving to Uplift Lives</span></p>
                     <!-- <p>Enter your desired amount:</p> -->
-                    <input type="number" id="customAmount" placeholder="Enter amount" style="width: 80%; padding: 0px; margin-bottom: 10px; border: 2px solid #e0d8ec; border-radius: 5px;">
+                    <input type="number" id="customAmount" placeholder="Enter amount" style="width: 80%; padding: 0px; margin-bottom: 5px; border: 2px solid #e0d8ec; border-radius: 5px;">
                     <a href="#donation-form"><button value="number" onclick="setCustomAmount()"><b>Donate Now</b></button></a>
                 </div>
             </div>
