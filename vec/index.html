@@ -163,7 +163,7 @@
     <div class="login-form">
         <img src="https://jivadaya.github.io/assets/img/jivadaya/jivadaya_logo.png" alt="Jivadaya">
         <h2>Value Education Contest</h2>
-        <form method="post" action="./request.php">
+        <form name="regForm" method="post" action="./request.php" onsubmit="doSubmit()">
             <input type="hidden" id="referrer-name-field" name="name_field" placeholder="Referred By" required readonly pattern="[a-zA-Z0-9\- ]{5,}" value="">
             <input type="hidden" id="amount" name="amount" placeholder="Amount" required readonly pattern="[0-9]{3,}" value="">
 
@@ -174,10 +174,11 @@
                 <option value="" disabled selected>Select your city</option>
             </select>
 
-            <select name="school" id="schoolDropdown" required autocomplete="off">
+            <select name="schoolOptions" id="schoolDropdown" autocomplete="off">
                 <option value="" disabled selected>Select a school</option>
             </select>
 
+            <input name="school" id="school-manual-input" placeholder="School Name with Address" hidden="true" autocomplete="off">
 
             <select name="class" id="classDropdown" required autocomplete="off">
                 <option value="" disabled selected>Select Your class</option>
@@ -204,12 +205,21 @@
     <script src="https://jivadaya.github.io/assets/js/jquery.min.js"></script>
 </body>
 <script>
+    function doSubmit() {
+        let schoolManualInput = document.getElementById("school-manual-input");
+        let schoolDropdown = document.getElementById("schoolDropdown");
+        let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
+
+        document.regForm.school.value = (chosenSchool==="Other" ? schoolManualInput.value : chosenSchool);
+        return true;
+    }
 
     function removeOptions(selectElement) {
         var i, L = selectElement.options.length - 1;
         for(i = L; i > 0; i--) {
             selectElement.remove(i);
         }
+        selectElement.options[0].selected = true;
     }
 
     const sheetUrl = "https://script.google.com/macros/s/AKfycbzAKk-jeiwX1L0L6KfG-5q3zAW3oHXYcoTxBNgj63V9LzxA3kUpOzUPuVSa_ILdjK1niA/exec";
@@ -237,17 +247,30 @@
             location.reload()
         });
 
-    $('#city').change(function (e) {
+    function resetForCity() {
         removeOptions(document.getElementById("schoolDropdown"));
+        resetForSchool()
+    }
+
+    function resetForSchool() {
         removeOptions(document.getElementById("languageDropdown"));
         document.getElementById("languageDropdown").style.display = "none";
+        document.getElementById("languageDropdown").required = false;
+
+        document.getElementById("school-manual-input").hidden = true;
+        document.getElementById("school-manual-input").required = false;
+        document.getElementById("school-manual-input").value = "";
+    }
+
+    $('#city').change(function (e) {
+        resetForCity()
 
         let chosenCity = $(e.target).find(":selected").text();
         console.log("Selected city: " + chosenCity);
 
         const dropdown = document.getElementById("schoolDropdown");
         let schoolsInCity = schoolData.filter(function (entry){
-            return entry["city"] === chosenCity
+            return entry["city"] === chosenCity && entry["school"]
         }).map(entry => entry["school"]);
 
         schoolsInCity.forEach(schoolName => {
@@ -262,13 +285,25 @@
     });
 
     $('#schoolDropdown').change(function (e) {
-        removeOptions(document.getElementById("languageDropdown"));
+        resetForSchool()
+
+        let schoolManualInput = document.getElementById("school-manual-input");
+        let schoolDropdown = document.getElementById("schoolDropdown");
 
         let chosenCity = $("#city").find(":selected").text();
-        console.log("Selected city: " + chosenCity);
-        let chosenSchool = $("#schoolDropdown").find(":selected").text();
-        console.log("Selected school: " + chosenSchool);
+        let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
 
+        console.log("Selected city: " + chosenCity);
+        console.log("Selected school: " + chosenSchool);
+        console.log("Manually selected school:", schoolManualInput.value);
+
+        if (chosenSchool === "Other" && !schoolManualInput.value) {
+            schoolManualInput.hidden = false;
+            schoolManualInput.required = true;
+            schoolManualInput.focus();
+        }
+
+        console.log(chosenCity, chosenSchool);
         let entries = schoolData.filter(function (entry) {
             return entry["city"]===chosenCity && entry["school"]===chosenSchool;
         })
@@ -281,9 +316,7 @@
         document.getElementById('referred_by').innerText = referrer.split("-")[1];
         document.getElementById('referrer-name-field').value = referrer;
         document.getElementById('amount').value = fee;
-        // document.getElementById('fee').innerText = fee;
         document.getElementById('referrer-display').style.display = "block";
-        // document.getElementById('fee-display').style.display = "block";
 
         let languages = entries[0]["languages"];
         if (!languages.length) {
