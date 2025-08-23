@@ -760,8 +760,8 @@
     }
 
     .image-container {
-    max-width: 60%;
-    height: 100vh;                /* full window height */
+    max-width: 30%;
+    height: auto;                /* full window height */
     display: flex;                /* enable flexbox */
     justify-content: center;      /* center horizontally */
     align-items: center;          /* center vertically */
@@ -857,12 +857,28 @@
         .desktop-image {
             display: none !important;
         }
-
-        .mobile-image {
-            display: block !important;
-            width: 100%; /* Responsive */
-        }
+         .image-container {
+        max-width: 90%;
+        height: auto;                /* full window height */
+        display: flex;                /* enable flexbox */
+        justify-content: center;      /* center horizontally */
+        align-items: center;          /* center vertically */
+        margin: 0 auto;               /* center container itself */
     }
+        
+        .donation-container {
+        padding: 0; /* remove padding on mobile */
+
+    }
+
+       
+      .mobile-image {
+        display: block !important;
+        width: 100vw;    /* fill full mobile width */
+        height: auto;    /* keep aspect ratio */
+    }
+}
+
 
     /* Desktop View: Ensure desktop image is visible */
     @media (min-width: 769px) {
