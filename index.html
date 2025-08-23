@@ -760,15 +760,19 @@
     }
 
     .image-container {
-        max-width: 60%;
-        margin: 20px auto;
-    }
+    max-width: 60%;
+    height: 100vh;                /* full window height */
+    display: flex;                /* enable flexbox */
+    justify-content: center;      /* center horizontally */
+    align-items: center;          /* center vertically */
+    margin: 0 auto;               /* center container itself */
+}
 
-    .image-container img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.image-container img {
+    width: 100%;                  /* responsive */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
     /* Container Styling */
     .donation-boxes {
