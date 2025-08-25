@@ -581,31 +581,31 @@
                     <div class="text p-3 choose-option" id="sb-choose">
                         <form>
                             <div class="sb-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="6501"
+                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="6101"
                                        id="success-outlined-sb" autocomplete="off">
                                 <label class="btn btn-outline-success" for="success-outlined-sb">1 Srimad Bhagvatam Set
-                                    (₹6,501)</label>
+                                    (₹6,101)</label>
                             </div>
 
                             <div class="sb-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="13001"
+                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="30505"
                                        id="success-outlined-sb-1" autocomplete="off">
                                 <label class="btn btn-outline-success" for="success-outlined-sb-1">5 Srimad Bhagvatam
-                                    Set (₹13,001)</label>
+                                    Set (₹30,505)</label>
                             </div>
 
                             <div class="sb-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="65001"
+                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="61001"
                                        id="success-outlined-sb-2" autocomplete="off">
                                 <label class="btn btn-outline-success" for="success-outlined-sb-2">10 Srimad Bhagvatam
-                                    Set (₹65,001)</label>
+                                    Set (₹61,001)</label>
                             </div>
 
                             <div class="sb-gita-option">
-                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="136501"
+                                <input type="radio" class="btn-check btn-light" name="sb-gita-option" value="128121"
                                        id="success-outlined-sb-3" autocomplete="off">
                                 <label class="btn btn-outline-success" for="success-outlined-sb-3">21 Srimad Bhagvatam
-                                    Set (₹1,36,501)</label>
+                                    Set (₹1,28,121)</label>
                             </div>
 
                             <!--                        <div class="gita-option">-->
@@ -760,15 +760,19 @@
     }
 
     .image-container {
-        max-width: 60%;
-        margin: 20px auto;
-    }
+    max-width: 30%;
+    height: auto;                /* full window height */
+    display: flex;                /* enable flexbox */
+    justify-content: center;      /* center horizontally */
+    align-items: center;          /* center vertically */
+    margin: 0 auto;               /* center container itself */
+}
 
-    .image-container img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.image-container img {
+    width: 100%;                  /* responsive */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
     /* Container Styling */
     .donation-boxes {
@@ -853,12 +857,28 @@
         .desktop-image {
             display: none !important;
         }
-
-        .mobile-image {
-            display: block !important;
-            width: 100%; /* Responsive */
-        }
+         .image-container {
+        max-width: 90%;
+        height: auto;                /* full window height */
+        display: flex;                /* enable flexbox */
+        justify-content: center;      /* center horizontally */
+        align-items: center;          /* center vertically */
+        margin: 0 auto;               /* center container itself */
     }
+        
+        .donation-container {
+        padding: 0; /* remove padding on mobile */
+
+    }
+
+       
+      .mobile-image {
+        display: block !important;
+        width: 100vw;    /* fill full mobile width */
+        height: auto;    /* keep aspect ratio */
+    }
+}
+
 
     /* Desktop View: Ensure desktop image is visible */
     @media (min-width: 769px) {
@@ -1625,7 +1645,15 @@
                             <li>Request changes to your personal data.</li>
                             <li>Request deletion of your personal data.</li>
                         </ul>
-
+                        <h2>Shipping & Delivery Policy</h2>
+                            <p>We strive to deliver your orders as quickly and safely as possible:</p>
+                            <ul>
+                                <li><strong>Local Courier:</strong> 1–2 working days</li>
+                                <li><strong>Within State:</strong> 2–5 working days</li>
+                                <li><strong>Outside State:</strong> 4–7 working days (depending on location and courier service)</li>
+                                <li><strong>Remote Areas:</strong> Delivery may take longer based on the courier company’s schedule</li>
+                            </ul>
+                            <p><strong>Please Note:</strong> Delivery times are estimates and may vary due to factors such as incorrect addresses, delays in customer responses, or Out of Delivery Area (ODA) restrictions.</p>
                         <h2>Security</h2>
                         <p>We take precautions to protect your data, both online and offline.</p>
 
@@ -1634,6 +1662,9 @@
                         <p><strong>ISKCON Pune NVCC</strong></p>
                         <p>📞 Phone: +91 8380077622</p>
                         <p>📧 Email: jivadaya@iskconpune.in</p>
+
+
+                        Shipping & Delivery Policy
                         <button class="close-btn" onclick="closePopup()">Close</button>
                     </div>
                     <div class="popup" id="refundPopup">
