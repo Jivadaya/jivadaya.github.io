@@ -65,197 +65,93 @@
         </div>
     </div>
 </div>
-</body>
-<style>
-        .jd-canvas-container {
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-top: 5rem;
-            background-color: #00000071;
-        }
-
-        .jd-bm-hero-bg {
-            background-image: url('assets/img/donate/bhadrapurnima.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(8px);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        .jd-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        .jd-content-wrapper {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            padding: 1rem;
-        }
-
-        .jd-bm-donation-card {
-            background-color: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .jd-bm-qty-btn {
-            @apply bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-xl font-bold;
-        }
-
-        .jd-bm-qty-btn:hover {
-            @apply bg-orange-600;
-        }
-
-        /* Premium Button Animation */
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 126, 0, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 126, 0, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 126, 0, 0); }
-        }
-
-        #donate-btn {
-            animation: pulse 2s infinite;
-        }
-
-        /* Floating Contact Button */
-        #floating-whatsapp-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #25D366;
-            color: #fff;
-            border-radius: 9999px;
-            width: 4rem;
-            height: 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-            z-index: 100;
-            transition: all 0.3s ease-in-out;
-        }
-
-        #floating-whatsapp-btn:hover {
-            background-color: #1DA851;
-            transform: scale(1.1);
-        }
-
-        /* Navbar Menu Styles */
-        .jd-nav-link {
-            position: relative;
-            font-size: 1.1rem;
-        }
-        .jd-nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #ff9900;
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-        }
-        .jd-nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        .jd-hero-title {
-            font-family: 'Playfair Display', serif;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-
-
-
-    <nav class="bg-black fixed top-0 w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <!-- Logo -->
+        <a href="#" class="d-flex align-items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center">
-                <img src="https://jivadaya.github.io/assets/img/donate/logo.png" alt="Logo" class="h-10 mr-2">
-                <span class="text-white text-xl font-semibold">Jivadaya ISKCON Pune</span>
-            </a>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+            <img src="https://jivadaya.github.io/assets/img/donate/logo.png" alt="Logo"
+                 style="height: 40px; margin-right: 10px;">
+            <span style="font-size: 20px; font-weight: normal; color: #f5feff;">Jivadaya ISKCON Pune</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+            <!-- <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+            <!-- <li class="nav-item"><a href="#" class="nav-link">Sankirtan (Bus Party)</a></li> -->
+            <!-- <li class="nav-item"><a href="#" class="nav-link">Causes</a></li> -->
+            <li class="nav-item"><a href="https://iskconbooks.jivadaya.org" target="_blank"
+                                    class="nav-link">BookStore</a></li>
+            <li class="nav-item"><a href="https://forms.gle/Ya1wokjVZoJ1ZPKE9" target="_blank"
+                                    class="nav-link">JoinUs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item cta"><a href="#ramnavami" class="nav-link">Donate</a></li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<!-- END nav -->
+<section class="hero-wrap js-fullheight">
 
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex space-x-6">
-                <ul class="flex items-center space-x-6">
-                    <li><a href="#" class="jd-nav-link text-white hover:text-orange-500 transition-colors duration-300">Home</a></li>
-                    <li><a href="https://iskconbooks.jivadaya.org" target="_blank" class="jd-nav-link text-white hover:text-orange-500 transition-colors duration-300">BookStore</a></li>
-                    <li><a href="https://forms.gle/Ya1wokjVZoJ1ZPKE9" target="_blank" class="jd-nav-link text-white hover:text-orange-500 transition-colors duration-300">JoinUs</a></li>
-                    <!-- <li><a href="#" class="jd-nav-link text-white hover:text-orange-500 transition-colors duration-300">Contact</a></li> -->
-                    <li><a href="#donation-form" class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300">Donate</a></li>
-                </ul>
+
+    <div class="home-slider js-fullheight owl-carousel">
+        <div class="slider-item js-fullheight" id="slider1"
+             style="background-image:url(https://jivadaya.github.io/assets/img/donate/bg_1.jpg);">
+            <!-- <div class="overlay-1"></div>
+            <div class="overlay-2"></div>
+            <div class="overlay-3"></div>
+            <div class="overlay-4"></div> -->
+            <div class="container">
+                <div class="row no-gutters slider-text js-fullheight align-items-center">
+                    <div class="col-md-10 col-lg-7 ftco-animate">
+                        <div class="text w-100">
+                            <!-- <h2 style="text-shadow: 10px 10px 60px rgba(0, 0, 0, 1);">
+                                Spread the Light of Wisdom
+                            </h2>
+                            <h1 class="mb-3 animated-title" style="text-shadow: 10px 20px 50px rgba(0, 0, 0, 1);">
+                                Donate for Spiritual Books
+                            </h1> -->
+                            <div class="d-flex meta">
+                                <div>
+                                    <p class="mb-0">
+                                        <a href="#ramnavami" class="btn-glow"
+                                           style="position: sticky;
+       top: 50%;
+       left: 45%;
+       transform: translate(-50%, -50%);
+       padding: 15px 30px;
+       font-size: 20px;
+       font-weight: bold;
+       color: white;
+       background: linear-gradient(45deg, #ff9900, #ff3300);
+       text-decoration: none;
+       border-radius: 50px;
+       box-shadow: 0 5px 15px rgba(188, 240, 255, 0.3);
+       transition: transform 0.2s, box-shadow 0.2s;
+       z-index: 2;">
+                                            Donate Now
+                                        </a>
+                                        <!-- <a href="#donation-form" class="btn donate-btn py-3 px-2 px-md-4">Donate</a> -->
+                                    </p>
+                                </div>
+                                <!-- <a href="https://www.youtube.com/@Jivadaya"
+                                   class="d-flex align-items-center button-link" target="_blank"> -->
+                                <div class="button-video d-flex align-items-center justify-content-center">
+                                    <!-- <span class="fa fa-play"></span> -->
+                                </div>
+                                <!-- <span>Watch our video</span> -->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Mobile Menu (Collapsed) -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-black py-2">
-            <ul class="flex flex-col items-center space-y-2">
-                <li><a href="#" class="block text-white px-4 py-2 hover:bg-gray-800 rounded-lg w-full text-center">Home</a></li>
-                <li><a href="https://iskconbooks.jivadaya.org" target="_blank" class="block text-white px-4 py-2 hover:bg-gray-800 rounded-lg w-full text-center">BookStore</a></li>
-                <li><a href="https://forms.gle/Ya1wokjVZoJ1ZPKE9" target="_blank" class="block text-white px-4 py-2 hover:bg-gray-800 rounded-lg w-full text-center">JoinUs</a></li>
-                <!-- <li><a href="#" class="block text-white px-4 py-2 hover:bg-gray-800 rounded-lg w-full text-center">Contact</a></li> -->
-                <li><a href="#donation-form" class="block bg-orange-500 text-white px-6 py-2 rounded-full w-40 text-center hover:bg-orange-600">Donate</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="jd-canvas-container">
-        <div class="jd-bm-hero-bg"></div>
-        <div class="jd-hero-overlay"></div>
-        <div class="jd-content-wrapper text-center text-white max-w-2xl mx-auto p-4 md:p-8 max-w-2xl mx-auto">
-            <h1 class="jd-hero-title text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg tracking-wide">The Bhadra Marathon: Srimad Bhagavatam Set Distribution</h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-lg">Your donation helps us distribute this divine wisdom. Support our cause.</p>
-
-            <div class="jd-bm-donation-card p-6 sm:p-8 rounded-3xl mx-auto text-left">
-                <h3 class="text-2xl sm:text-3xl font-bold text-center text-white mb-6">Srimad Bhagavatam Sets</h3>
-
-                <div class="space-y-6">
-                    <!-- Item Selection Dropdown -->
-                    <div>
-                        <!-- <p class="text-lg font-semibold text-white mb-2">Select a Set:</p> -->
-                        <select id="donation-item-select" class="w-full px-4 py-3 rounded-xl bg-white text-gray-800 border-2 border-transparent focus:border-orange-500 transition-all">
-                            <option value="set-18-en">Srimad Bhagavatam Full Set (18 Volume) : English</option>
-                            <option value="set-44-en">Srimad Bhagavatam Full Set (44 Volume) [5x7 inches] : English</option>
-                            <option value="set-18-tel">Srimad Bhagavatam Full Set (18 Volume) : Telugu</option>
-                            <option value="set-12-en">Srimad Bhagavatam Full Set (12 Volume) : English</option>
-                            <option value="set-12-tel">Srimad Bhagavatam Full Set (12 Volume) : Telugu</option>
-                            <option value="set-10-en">Srimad Bhagavatam Full Set (10 Volume) : English</option>
-                            <option value="set-10-tel">Srimad Bhagavatam Full Set (10 Volume) : Telugu</option>
-                            <option value="set-9-en">Srimad Bhagavatam Full Set (9 Volume) : English</option>
-                            <option value="set-9-tel">Srimad Bhagavatam Full Set (9 Volume) : Telugu</option>
-                            <option value="set-1-en">Srimad Bhagavatam (Volume 1) : English</option>
-                        </select>
-                    </div>
 
                     <!-- Quantity Selector -->
                     <div>
