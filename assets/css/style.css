@@ -454,6 +454,7 @@ pre {
   @media (min-width: 1200px) {
     .container {
       max-width: 1140px; } }
+      
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
@@ -9300,7 +9301,10 @@ textarea.form-control {
 .donation-wrap {
   width: 100%;
   background: url(https://jivadaya.github.io/assets/img/donate/moroccan-flower-dark.png);
-  border-radius: 10px 10px 0px 0; }
+  border-radius: 10px 10px 0px 0; 
+  z-index: 12;
+  }
+
   @media (min-width: 992px) {
     .donation-wrap {
       margin-top: -113px; } }
@@ -9308,7 +9312,7 @@ textarea.form-control {
     background: #fd645b;
     padding: 25px 40px;
     border-radius: 10px 10px 0px 0;
-    z-index: 0;
+    z-index: 12;
     position: relative; }
     .donation-wrap .total-donate h4 {
       color: #fff;
