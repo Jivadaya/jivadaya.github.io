@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
@@ -74,7 +76,7 @@
             overflow: hidden;
             width: 100%;
             padding-top: 5rem;
-            background-color: #00000071;
+            background-color: #00000034;
         }
 
         .jd-bm-hero-bg {
@@ -185,10 +187,12 @@
             transform-origin: bottom left;
         }
         .jd-hero-title {
-            font-family: 'Playfair Display', serif;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+        font-family: 'Playfair Display', serif;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
+    }
+
     </style>
 
 
@@ -233,8 +237,23 @@
         <div class="jd-bm-hero-bg"></div>
         <div class="jd-hero-overlay"></div>
         <div class="jd-content-wrapper text-center text-white max-w-2xl mx-auto p-4 md:p-8 max-w-2xl mx-auto">
-            <h1 class="jd-hero-title text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg tracking-wide">The Bhadra Marathon: Srimad Bhagavatam Set Distribution</h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-lg">Your donation helps us distribute this divine wisdom. Support our cause.</p>
+        <h1 
+        class="jd-hero-title text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg tracking-wide" 
+        data-aos="fade-up" 
+        data-aos-duration="1200" 
+        data-aos-delay="50"
+        >
+        The Bhadra Marathon: Srimad Bhagavatam Set Distribution
+        </h1>
+
+            <p 
+            class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-lg"
+            data-aos="fade-up" 
+            data-aos-duration="1200" 
+            data-aos-delay="400"
+            >
+            Your donation helps us distribute this divine wisdom. Support our cause.
+            </p>
 
             <div class="jd-bm-donation-card p-6 sm:p-8 rounded-3xl mx-auto text-left">
                 <h3 class="text-2xl sm:text-3xl font-bold text-center text-white mb-6">Srimad Bhagavatam Sets</h3>
@@ -247,37 +266,45 @@
                             <option value="set-18-en">Srimad Bhagavatam Full Set (18 Volume) : English</option>
                             <option value="set-44-en">Srimad Bhagavatam Full Set (44 Volume) [5x7 inches] : English</option>
                             <option value="set-18-tel">Srimad Bhagavatam Full Set (18 Volume) : Telugu</option>
-                            <option value="set-12-en">Srimad Bhagavatam Full Set (12 Volume) : English</option>
-                            <option value="set-12-tel">Srimad Bhagavatam Full Set (12 Volume) : Telugu</option>
-                            <option value="set-10-en">Srimad Bhagavatam Full Set (10 Volume) : English</option>
-                            <option value="set-10-tel">Srimad Bhagavatam Full Set (10 Volume) : Telugu</option>
-                            <option value="set-9-en">Srimad Bhagavatam Full Set (9 Volume) : English</option>
-                            <option value="set-9-tel">Srimad Bhagavatam Full Set (9 Volume) : Telugu</option>
-                            <option value="set-1-en">Srimad Bhagavatam (Volume 1) : English</option>
+                            <option value="set-18-tam">Srimad Bhagavatam Full Set (18 Volume) : Tamil</option>
+                            <option value="set-18-hin">Srimad Bhagavatam Full Set (18 Volume) : Hindi</option>
+                            <option value="set-18-mar">Srimad Bhagavatam Full Set (18 Volume) : Marathi</option>
+                            <option value="set-18-guj">Srimad Bhagavatam Full Set (18 Volume) : Gujarati</option>
+                            <option value="set-18-kan">Srimad Bhagavatam Full Set (18 Volume) : Kannada</option>
+                            <option value="set-18-mala">Srimad Bhagavatam Full Set (18 Volume) : Malayalam</option>
+                            <option value="set-18-odi">Srimad Bhagavatam Full Set (18 Volume) : Odiya</option>
+                            <option value="set-18-ben">Srimad Bhagavatam Full Set (18 Volume) : Bengali</option>
                         </select>
                     </div>
 
-                    <!-- Quantity Selector -->
-                    <div>
-                        <p class="text-lg font-semibold text-white mb-2">Quantity:</p>
-                        <div class="flex items-center justify-center sm:justify-start gap-4">
+                                        <!-- Quantity + Total Inline -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        
+                        <!-- Quantity Inline -->
+                        <div class="flex items-center gap-4">
+                            <p class="text-lg font-semibold text-white">Quantity:</p>
                             <button id="decrease-qty" class="jd-bm-qty-btn">-</button>
-                            <input type="number" id="donation-qty" value="1" min="1" class="w-20 text-center py-2 rounded-xl text-lg font-semibold text-gray-800">
+                            <input type="number" id="donation-qty" value="1" min="1" 
+                            class="w-20 text-center py-2 rounded-xl text-lg font-semibold text-gray-800">
                             <button id="increase-qty" class="jd-bm-qty-btn">+</button>
                         </div>
-                    </div>
 
-                    <!-- Price and Donation Button -->
-                    <div class="text-center mt-6">
-                        <div class="flex items-center justify-center gap-2 mb-4">
-                            <p class="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">Total:</p>
-                            <span id="current-price" class="text-2xl sm:text-3xl font-bold text-orange-400 drop-shadow-lg">₹8,000.00</span>
-                            <span id="original-price" class="text-lg sm:text-xl text-gray-300 line-through ml-2 drop-shadow-lg">₹10,100.00</span>
+                        <!-- Total Price (inline with Quantity on larger screens) -->
+                        <div class="flex items-center gap-2">
+                            <p class="text-xl font-bold text-white drop-shadow-lg">Total:</p>
+                            <span id="current-price" class="text-2xl sm:text-3xl font-bold text-orange-400 drop-shadow-lg">₹6,900</span>
+                            <span id="original-price" class="text-lg sm:text-xl text-gray-300 line-through ml-2 drop-shadow-lg">₹9,200</span>
                         </div>
+
+                        </div>
+
+                        <!-- Donation Button -->
+                        <div class="text-center mt-6">
                         <a href="#donation-form">
-                        <button id="donate-btn" class="w-full sm:w-auto mt-4 px-10 py-4 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300">
-                            Donate Now</a>
-                        </button>
+                            <button id="donate-btn" class="w-full sm:w-auto mt-4 px-10 py-4 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300">
+                            Donate Now
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1804,16 +1831,17 @@
     
 document.addEventListener('DOMContentLoaded', () => {
     const items = {
+        'set-18-en': { price: 8500, originalPrice: 11000 },
         'set-44-en': { price: 8000, originalPrice: 10100 },
-        'set-18-en': { price: 8500, originalPrice: 8500 },
+        'set-18-mar': { price: 6100, originalPrice: 7600 },
+        'set-18-hin': { price: 6900, originalPrice: 8700 },
         'set-18-tel': { price: 6100, originalPrice: 7800 },
-        'set-12-en': { price: 4000, originalPrice: 5000 },
-        'set-12-tel': { price: 3000, originalPrice: 4000 },
-        'set-10-en': { price: 3500, originalPrice: 4500 },
-        'set-10-tel': { price: 2500, originalPrice: 3500 },
-        'set-9-en': { price: 3000, originalPrice: 4000 },
-        'set-9-tel': { price: 2000, originalPrice: 3000 },
-        'set-1-en': { price: 1000, originalPrice: 1000 }
+        'set-18-tam': { price: 7000, originalPrice: 9100 },
+        'set-18-odi': { price: 7100, originalPrice: 9200 },
+        'set-18-mala': { price: 9500, originalPrice: 11400 },
+        'set-18-kan': { price: 7500, originalPrice: 8500 },
+        'set-18-guj': { price: 7500, originalPrice: 9400 },
+        'set-18-ben': { price: 6900, originalPrice: 9200 }
     };
    const mobileMenuButton = document.getElementById('mobile-menu-button'); 
    const mobileMenu = document.getElementById('mobile-menu'); 
@@ -1881,6 +1909,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplayPrices(); // Initial UI setup
 });
 </script>
-
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // animation happens only once
+    offset: 100 // trigger offset
+  });
+</script>
 </body>
 </html>
