@@ -1,11 +1,762 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shubhchintak Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitru Paksha Shastra Daan | Jivadaya ISKCON Pune</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Poppins font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a2b5d; /* Dark Blue */
+            --secondary-color: #ff8c00; /* Bright Orange */
+            --background-color: #f8f9fa; /* Light Gray */
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --light-text-color: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Custom styles not easily done with Tailwind */
+        .site-footer a {
+            transition: color 0.3s ease;
+        }
+        .site-footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container-content {
+            max-width: 768px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            background-color: var(--card-color);
+            margin-top: 100px;
+        }
+
+        /* Scroll animations */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar styling */
+        .amount-options::-webkit-scrollbar {
+            width: 8px;
+        }
+        .amount-options::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+        .amount-options::-webkit-scrollbar-track {
+            background: var(--background-color);
+        }
+
+        /* Amount options radio button styling */
+        .amount-options label {
+            background-color: var(--background-color);
+            border: 2px solid transparent;
+            border-radius: 6px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .amount-options label:hover,
+        .amount-options input[type="radio"]:checked + .option-content {
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.2);
+            background-color: var(--card-color);
+        }
+        .amount-options input[type="radio"] {
+            display: none;
+        }
+
+        /* Form input icon styling */
+        .input-wrap {
+            position: relative;
+        }
+        .input-wrap .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 12px 12px 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            color: var(--text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(26, 43, 93, 0.3);
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-<body>
-Shubhchintak donation page.
+<body class="bg-gray-100">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="bg-white shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="https://jivadaya.github.io/assets/img/donate/logo.png" alt="Logo" class="h-10 mr-2 rounded-full">
+                <span class="text-gray-900 text-xl font-semibold">Jivadaya ISKCON Pune</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6">
+                <ul class="flex items-center space-x-6">
+                    <li><a href="#" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">Home</a></li>
+                    <li><a href="https://iskconbooks.jivadaya.org" target="_blank" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">BookStore</a></li>
+                    <li><a href="https://forms.gle/Ya1wokjVZoJ1ZPKE9" target="_blank" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">JoinUs</a></li>
+                    <li><a href="#donation-form-section" class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300 font-bold shadow-lg">Donate</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Collapsed) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-50 py-2 transition-all duration-300 ease-in-out">
+            <ul class="flex flex-col items-center space-y-2">
+                <li><a href="#" class="block text-gray-700 px-4 py-2 hover:bg-gray-200 rounded-lg w-full text-center">Home</a></li>
+                <li><a href="https://iskconbooks.jivadaya.org" target="_blank" class="block text-gray-700 px-4 py-2 hover:bg-gray-200 rounded-lg w-full text-center">BookStore</a></li>
+                <li><a href="https://forms.gle/Ya1wokjVZoJ1ZPKE9" target="_blank" class="block text-gray-700 px-4 py-2 hover:bg-gray-200 rounded-lg w-full text-center">JoinUs</a></li>
+                <li><a href="#donation-form-section" class="block bg-orange-500 text-white px-6 py-2 rounded-full w-40 text-center hover:bg-orange-600 transition-colors duration-300">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-content">
+        <!-- Main Header Section -->
+        <header class="animate-fade-in">
+            <h1 class="text-3xl font-bold text-indigo-800 mb-2">Pitru Paksha Mahadaan</h1>
+            <p class="text-lg text-gray-600">Donate Srimad Bhagavatam for the Liberation of Your Ancestors.</p>
+        </header>
+
+        <!-- Intro Text Section -->
+        <p class="intro-text text-left leading-relaxed mt-6 animate-fade-in">
+            <span class="border-l-4 border-orange-500 pl-4 block text-gray-700">
+            `Pitru Paksha` is a sacred period to honor our departed ancestors and offer them prayers for their peace and spiritual journey. On this occasion, we invite you to participate in a profound act of charity (`Daan`) by supporting the distribution of sacred scriptures.
+            </span>
+        </p>
+
+        <!-- Shastra Section -->
+        <div class="shastra-section bg-indigo-800 text-white p-6 rounded-xl shadow-lg mt-8 animate-fade-in">
+            <h3 class="text-2xl font-bold mb-2">The Power of `Srimad Bhagavatam` Daan</h3>
+            <p class="text-sm leading-relaxed opacity-90">
+                The donation of sacred wisdom is considered the highest form of charity. By supporting the printing and distribution of `Srimad Bhagavatam`, you are giving the divine gift of eternal knowledge. This selfless act purifies the hearts of both the donor and the recipient, and it grants immense spiritual benefit to the departed souls, helping them on their journey to the spiritual world.
+            </p>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="additional-info text-left mt-8 space-y-4 animate-fade-in">
+            <p>Śrīmad-Bhāgavatam is the transcendental science not only for knowing the ultimate source of everything but also for knowing our relation with Him and our duty toward perfection of the human society on the basis of this perfect knowledge.</p>
+            <p>Lord Krishna blesses our ancestors when we read, hear and glorify Him. The Srimad Bhagavatam is the essence of all vedic scriptures because it is full of pastimes of Lord Krishna.</p>
+            <p>This Śrīmad-Bhāgavatam is the literary incarnation of God. It is meant for the ultimate good of all people, and it is all-successful, all-blissful and all-perfect. - Srimad-Bhagavatam 1.3.40</p>
+            <p>Donate or Gift Srimad Bhagavatam to devotees, to your friends, family members, colleagues, neighbours or anyone and offer Lord Krishna's blessings on them. Your ancestors will surely be happy with this act of charity.</p>
+            <p class="font-bold text-orange-600">There is an additional delivery charge of ₹800 per set if you want Srimad Bhagavatam to be delivered at your postal address.</p>
+        </div>
+        
+        <!-- Donation Form Section -->
+        <div id="donation-form-section" class="mt-10 p-6 rounded-lg shadow-inner bg-gray-50 text-left animate-fade-in">
+            <h3 class="text-2xl font-bold text-indigo-800 text-center mb-4">Select a Donation Amount</h3>
+            <div class="amount-options overflow-y-auto max-h-96 space-y-2">
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="500000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 75 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹500,000</span>
+                    </span>
+                </label>
+                <!-- Existing radio buttons -->
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="400000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 60 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹400,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="300000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 36 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹300,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="200000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 30 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹200,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="150000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 18 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹150,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="100000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 15 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹100,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="100000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 12 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹100,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="93500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 11 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹93,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="85000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 10 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹85,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="76500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 9 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹76,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="69000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 10 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹69,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="68000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 8 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹68,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="62100">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 9 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹62,100</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="59500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 7 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹59,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="55200">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 8 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹55,200</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="51000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English- 6 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹51,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="48300">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 7 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹48,300</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="41400">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 6 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹41,400</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="42500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 5 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹42,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="34500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 5 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹34,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="34000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 4 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹34,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="27600">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 4 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹27,600</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="24400">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Marathi - 4 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹24,400</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="22500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Gujarati - 3 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹22,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="20700">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi - 3 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹20,700</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="25500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 3 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹25,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="18300">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Marathi - 3 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹18,300</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="17000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English - 2 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹17,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="15000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Gujarati - 2 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹15,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="12200">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Marathi - 2 Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹12,200</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="13800">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi Two Sets</span>
+                        <span class="text-lg font-bold text-indigo-800">₹13,800</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="6900">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Bengali Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹6,900</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="9500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Malayalam Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹9,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="7500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Kannada Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹7,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="7100">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Odia Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹7,100</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="7000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Tamil Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹7,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="8000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English (Pocket Size)</span>
+                        <span class="text-lg font-bold text-indigo-800">₹8,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="7500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Gujarati Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹7,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="6100">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Telugu Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹6,100</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="6100">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Marathi Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹6,100</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="8500">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam English Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹8,500</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="6900">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Srimad Bhagavatam Hindi Set</span>
+                        <span class="text-lg font-bold text-indigo-800">₹6,900</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="5000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Donate for Srimad Bhagavatam</span>
+                        <span class="text-lg font-bold text-indigo-800">₹5,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="3000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Donate for Srimad Bhagavatam</span>
+                        <span class="text-lg font-bold text-indigo-800">₹3,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="2000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Donate for Srimad Bhagavatam</span>
+                        <span class="text-lg font-bold text-indigo-800">₹2,000</span>
+                    </span>
+                </label>
+                <label class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="1000">
+                    <span class="option-content bg-gray-100 rounded-lg p-4 flex justify-between items-center transition-all duration-300">
+                        <span class="font-semibold">Donate for Srimad Bhagavatam</span>
+                        <span class="text-lg font-bold text-indigo-800">₹1,000</span>
+                    </span>
+                </label>
+                <label style="background-color: var(--card-color); border: 2px dashed var(--border-color);" class="cursor-pointer block">
+                    <input type="radio" name="amount_selection" value="" id="custom_amount_radio">
+                    <span class="option-content">
+                        <span class="font-semibold text-gray-700">Custom Amount</span>
+                        <span class="text-lg font-bold text-orange-500"></span>
+                    </span>
+                </label>
+            </div>
+            
+            <p class="text-center text-gray-700 mt-4">Referred by: <span id="referred_by" class="font-bold">None</span></p>
+
+            <form method="POST" action="request.php" class="mt-6 space-y-4">
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="icon"><span class="fa fa-user"></span></div>
+                        <input type="text" pattern="[a-z A-Z]{5,}" title="Enter alphabets and Space only - Min 5 characters" id="name_field" class="form-control" placeholder="Your Name" name="name_field" minlength="5" maxlength="100" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="icon"><span class="fa fa-paper-plane"></span></div>
+                        <input type="email" class="form-control" placeholder="Email Address" name="email_field" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="icon"><span class="fa fa-phone"></span></div>
+                        <input type="tel" pattern="[0-9]{10}" title="Enter 10 digit mobile number" class="form-control" placeholder="Mobile Number" name="mobile_field" maxlength="10" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="icon"><span class="fa fa-money-bill-alt"></span></div>
+                        <input type="number" min="100" max="9999999" class="form-control" id="custom_amount_input" placeholder="Enter Amount" name="amount_field" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dedication_text" class="font-semibold text-gray-800">Dedication to ancestors (Names/Occasion):</label>
+                    <textarea id="dedication_text" class="form-control w-full p-3 mt-1 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Ex: For the liberation of my grandfather, Mr. Krishna Das, on his first death anniversary." name="dedication_text"></textarea>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="font-semibold text-gray-800">Select Book Language:</label>
+                    <div class="flex flex-wrap gap-4 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="lang_select" value="English" checked class="form-radio text-indigo-600">
+                            <span class="ml-2 text-gray-700">English</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="lang_select" value="Hindi" class="form-radio text-indigo-600">
+                            <span class="ml-2 text-gray-700">Hindi</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="lang_select" value="Marathi" class="form-radio text-indigo-600">
+                            <span class="ml-2 text-gray-700">Marathi</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="lang_select" value="Other" class="form-radio text-indigo-600">
+                            <span class="ml-2 text-gray-700">Other</span>
+                        </label>
+                    </div>
+                </div> -->
+                <input type="hidden" name="type" value="Pitru Paksha Mahadaan">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <button type="submit" class="w-full bg-orange-500 text-white font-bold text-lg py-3 rounded-xl hover:bg-orange-600 transition-colors duration-300 shadow-md">Donate Now</button>
+            </form>
+            <p class="text-sm text-gray-500 mt-4 text-center">All donations are tax-exempt under Section 80G.</p>
+        </div>
+    </div>
+
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a href="https://wa.me/918380077622?text=Hare Krishna! I would like to get more information about the Pitru Paksha Shastra Daan." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer bg-gray-900 text-gray-300 py-10">
+        <div class="container mx-auto px-4 flex flex-wrap justify-between gap-8">
+            <!-- Brand / Title -->
+            <div class="footer-brand w-full md:w-1/3 mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold text-orange-400 mb-2">JIVADAYA ISKCON NVCC PUNE</h2>
+                <p class="italic text-gray-500 mb-4">Serving with Love • Donate for a Divine Cause</p>
+                <p class="leading-relaxed text-gray-400 text-sm">
+                    Jivadaya ISKCON Pune is dedicated to spreading the wisdom of the Bhagavad Gita and 
+                    Srila Prabhupada's books through various initiatives, reaching villages, schools, 
+                    colleges, and communities with prasadam and spiritual knowledge.
+                </p>
+            </div>
+
+            <!-- Quick Links (Our Causes) -->
+            <div class="footer-links w-1/2 md:w-auto mb-6 md:mb-0">
+                <h3 class="text-lg font-semibold text-white mb-4">Our Causes</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-orange-400">Travelling Sankirtan Festival</a></li>
+                    <li><a href="#" class="hover:text-orange-400">Village Book Distribution + Prasadam</a></li>
+                    <li><a href="#" class="hover:text-orange-400">Gita Contest</a></li>
+                    <li><a href="#" class="hover:text-orange-400">College Wisdom Eye Credit Course</a></li>
+                    <li><a href="#" class="hover:text-orange-400">Old-age Homes & Orphanages</a></li>
+                    <li><a href="#" class="hover:text-orange-400">Distribution to Jailers</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact w-1/2 md:w-auto mb-6 md:mb-0">
+                <h3 class="text-lg font-semibold text-white mb-4">Contact Us</h3>
+                <p class="leading-relaxed text-gray-400">ISKCON PUNE NVCC,<br>
+                    Kondhwa Bypass Road,<br>
+                    Pune, Maharashtra 411048</p>
+                <p class="mt-4"><a href="tel:+918380077622" class="hover:text-orange-400">📞 +91 83800 77622</a></p>
+                <p class="mt-2"><a href="mailto:jivadaya@iskconpune.in" class="hover:text-orange-400">✉️ jivadaya@iskconpune.in</a></p>
+            </div>
+        </div>
+
+        <!-- Bottom Line -->
+        <div class="footer-bottom border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+            <p>© 2025 Jivadaya ISKCON NVCC Pune. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="hover:text-orange-400">Terms & Conditions</a> | 
+                <a href="#" class="hover:text-orange-400">Privacy Policy</a> | 
+                <a href="#" class="hover:text-orange-400">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle scroll animations
+            function handleAnimations() {
+                const elements = document.querySelectorAll('.animate-fade-in');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleAnimations);
+            window.addEventListener('load', handleAnimations);
+            handleAnimations(); // Run on initial load
+
+            // Function to handle UTM parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                const results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            const utmSource = getUrlParameter('utm_source');
+            const utmMedium = getUrlParameter('utm_medium');
+            const referredBy = getUrlParameter('referred_by');
+
+            if (utmSource) {
+                document.getElementById('utm_source').value = utmSource;
+            }
+            if (utmMedium) {
+                document.getElementById('utm_medium').value = utmMedium;
+            }
+            if (referredBy) {
+                document.getElementById('referred_by').textContent = referredBy;
+            }
+
+            // Custom amount input visibility and functionality
+            const customAmountRadio = document.getElementById('custom_amount_radio');
+            const customAmountInput = document.getElementById('custom_amount_input');
+            const amountOptions = document.querySelectorAll('input[name="amount_selection"]');
+
+            customAmountInput.disabled = true;
+
+            amountOptions.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.id === 'custom_amount_radio') {
+                        customAmountInput.disabled = false;
+                        customAmountInput.value = '';
+                        customAmountInput.placeholder = 'Enter Custom Amount';
+                        customAmountInput.focus();
+                    } else {
+                        customAmountInput.disabled = true;
+                        customAmountInput.value = this.value;
+                        customAmountInput.placeholder = 'Enter Amount';
+                    }
+                });
+            });
+
+            // Set a default radio selection
+            const defaultSelection = document.querySelector('input[name="amount_selection"][value="8500"]');
+            if (defaultSelection) {
+                defaultSelection.checked = true;
+                customAmountInput.value = defaultSelection.value;
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
