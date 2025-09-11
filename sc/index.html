@@ -631,55 +631,250 @@
     <a href="https://wa.me/918380077622?text=Hare Krishna! I would like to get more information about the Pitru Paksha Shastra Daan." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="site-footer bg-gray-900 text-gray-300 py-10">
-        <div class="container mx-auto px-4 flex flex-wrap justify-between gap-8">
-            <!-- Brand / Title -->
-            <div class="footer-brand w-full md:w-1/3 mb-6 md:mb-0">
-                <h2 class="text-2xl font-bold text-orange-400 mb-2">JIVADAYA ISKCON NVCC PUNE</h2>
-                <p class="italic text-gray-500 mb-4">Serving with Love • Donate for a Divine Cause</p>
-                <p class="leading-relaxed text-gray-400 text-sm">
-                    Jivadaya ISKCON Pune is dedicated to spreading the wisdom of the Bhagavad Gita and 
-                    Srila Prabhupada's books through various initiatives, reaching villages, schools, 
-                    colleges, and communities with prasadam and spiritual knowledge.
-                </p>
+        }
+
+        /* Specific styles for the popups since Tailwind doesn't handle fixed positioning and overlays directly in a simple way */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #171616;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 0.625rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .popup h2 {
+            color: #FFDE00; /* Yellow for headings */
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+    </style>
+</head>
+
+
+    <!-- Footer section -->
+   <footer class="w-full bg-gray-900 text-gray-300 py-12 px-6">
+
+        <div class="max-w-7xl mx-auto container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: Jivadaya ISKCON Pune -->
+                <div class="space-y-4">
+                    <h2 class="text-xl font-bold text-white">Jivadaya ISKCON Pune</h2>
+                    <p class="text-sm">Brings the light of spiritual wisdom to every heart, distributing Srila Prabhupada’s books across villages and schools, inspiring lives with timeless knowledge and peace.</p>
+                    <a href="#donation-form" class="inline-block px-6 py-2 rounded-full text-white font-semibold transition-transform duration-300 ease-in-out transform hover:scale-105" style="background-color: #ff7b00;">Donate Now</a>
+                </div>
+
+                <!-- Column 2: Book Marathon -->
+                <div>
+                    <h2 class="text-xl font-bold text-white">Book Marathon</h2>
+                    <div class="flex items-start mt-4">
+                        <img src="https://jivadaya.github.io/assets/img/donate/image_1.jpg" alt="Book Marathon" class="w-16 h-16 rounded-lg mr-4 object-cover">
+                        <div class="text">
+                            <h3 class="font-medium text-white mb-1"><a href="#">One Book, One Heart: Join the Mission Today!</a></h3>
+                        </div>
+                    </div>
+                    <div class="flex items-start mt-4">
+                        <img src="https://jivadaya.github.io/assets/img/donate/image_2.jpg" alt="Book Marathon" class="w-16 h-16 rounded-lg mr-4 object-cover">
+                        <div class="text">
+                            <h3 class="font-medium text-white mb-1"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div class="pl-0 lg:pl-5">
+                    <h2 class="text-xl font-bold text-white">Quick Links</h2>
+                    <ul class="list-none space-y-2 mt-4">
+                        <li><a href="#" class="block hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="#" class="block hover:text-white transition-colors duration-200">Causes</a></li>
+                        <li><a href="https://iskconbooks.jivadaya.org/" class="block hover:text-white transition-colors duration-200">Book Store</a></li>
+                        <li><a href="https://www.youtube.com/jivadaya" class="block hover:text-white transition-colors duration-200">Youtube</a></li>
+                        <li><a href="#" class="block hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Questions -->
+                <div>
+                    <h2 class="text-xl font-bold text-white">Have a Question?</h2>
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center">
+                            <span class="text-orange-400 mr-3"><i class="fa fa-map-marker-alt"></i></span>
+                            <span class="text-sm">ISKCON PUNE NVCC, Kondhwa Bypass Road, Pune, Maharashtra 411048</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-orange-400 mr-3"><i class="fa fa-phone"></i></span>
+                            <a href="https://wa.me/918380077622" target="_blank" class="text-sm hover:text-white transition-colors duration-200">+91 8380077622</a>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-orange-400 mr-3"><i class="fa fa-envelope"></i></span>
+                            <a href="mailto:jivadaya@iskconpune.in" class="email-link text-sm hover:text-white transition-colors duration-200">jivadaya@iskconpune.in</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Quick Links (Our Causes) -->
-            <div class="footer-links w-1/2 md:w-auto mb-6 md:mb-0">
-                <h3 class="text-lg font-semibold text-white mb-4">Our Causes</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-orange-400">Travelling Sankirtan Festival</a></li>
-                    <li><a href="#" class="hover:text-orange-400">Village Book Distribution + Prasadam</a></li>
-                    <li><a href="#" class="hover:text-orange-400">Gita Contest</a></li>
-                    <li><a href="#" class="hover:text-orange-400">College Wisdom Eye Credit Course</a></li>
-                    <li><a href="#" class="hover:text-orange-400">Old-age Homes & Orphanages</a></li>
-                    <li><a href="#" class="hover:text-orange-400">Distribution to Jailers</a></li>
-                </ul>
-            </div>
+            <!-- Footer bottom section with buttons and copyright -->
+            <div class="text-center mt-12 space-y-4">
+                <div class="space-x-4">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition-colors duration-300" onclick="showPopup('termsPopup')">Terms And Conditions</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition-colors duration-300" onclick="showPopup('privacyPopup')">Privacy Policy</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition-colors duration-300" onclick="showPopup('refundPopup')">Refund Policy</button>
+                </div>
 
-            <!-- Contact Info -->
-            <div class="footer-contact w-1/2 md:w-auto mb-6 md:mb-0">
-                <h3 class="text-lg font-semibold text-white mb-4">Contact Us</h3>
-                <p class="leading-relaxed text-gray-400">ISKCON PUNE NVCC,<br>
-                    Kondhwa Bypass Road,<br>
-                    Pune, Maharashtra 411048</p>
-                <p class="mt-4"><a href="tel:+918380077622" class="hover:text-orange-400">📞 +91 83800 77622</a></p>
-                <p class="mt-2"><a href="mailto:jivadaya@iskconpune.in" class="hover:text-orange-400">✉️ jivadaya@iskconpune.in</a></p>
-            </div>
-        </div>
+                <!-- Popups -->
+                <!-- Dark Background Overlay -->
+                <div class="overlay" id="overlay" onclick="closePopup()"></div>
 
-        <!-- Bottom Line -->
-        <div class="footer-bottom border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
-            <p>© 2025 Jivadaya ISKCON NVCC Pune. All Rights Reserved.</p>
-            <div class="mt-2">
-                <a href="#" class="hover:text-orange-400">Terms & Conditions</a> | 
-                <a href="#" class="hover:text-orange-400">Privacy Policy</a> | 
-                <a href="#" class="hover:text-orange-400">Refund Policy</a>
+                <!-- Terms And Conditions Popup -->
+                <div class="popup" id="termsPopup">
+                    <h2 class="text-xl font-bold">Terms and Conditions – ISKCON Pune NVCC SANKIRTAN</h2>
+                    <div class="mt-4 text-sm text-gray-300 space-y-4">
+                        <p>The website <strong>donate.jivadaya.org</strong> (the “Site”) is fully owned and operated by International Society for Krishna Consciousness (ISKCON) Pune NVCC.</p>
+                        <p>By using this Site or making a donation through the Site, you agree to be bound by the following terms and conditions. If you do not agree to these terms, please refrain from using the Site.</p>
+                        <p>
+                            <strong>1. Changes to Terms & Conditions</strong>
+                            ISKCON Pune NVCC reserves the right to update, modify, or amend these terms at any time without prior notice. It is the user’s responsibility to periodically review this page for any changes. Continued use of the website after updates shall be deemed as acceptance of the modified terms.
+                        </p>
+                        <p>
+                            <strong>2. Acceptance of Terms</strong>
+                            Your use of the Site constitutes your acknowledgment and acceptance of these terms and any future modifications. If you do not agree to any changes, your only recourse is to discontinue the use of the website.
+                        </p>
+                        <p><strong>Effective Date:</strong> [30th March 2025]</p>
+                        <button class="mt-4 px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-300" onclick="closePopup()">Close</button>
+                    </div>
+                </div>
+
+                <!-- Privacy Policy Popup -->
+                <div class="popup" id="privacyPopup">
+                    <h2 class="text-xl font-bold">Privacy Policy – ISKCON Pune NVCC Sankirtan</h2>
+                    <div class="mt-4 text-sm text-gray-300 space-y-4">
+                        <p>This privacy notice discloses the privacy practices for <strong>donate.jivadaya.org</strong>. It will notify you of:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>What information we collect, how it is used, and whom it is shared with.</li>
+                            <li>How you can control the use of your data.</li>
+                            <li>Security measures in place to protect your information.</li>
+                            <li>How to correct any inaccuracies in your data.</li>
+                        </ul>
+
+                        <h2 class="text-lg font-bold">Information Collection, Use, and Sharing</h2>
+                        <p>We are the sole owners of the information collected on this site. We only collect data that you voluntarily provide us through email, donation forms, or direct contact. We do not sell or rent your information to anyone.</p>
+
+                        <h2 class="text-lg font-bold">Your Access to and Control Over Information</h2>
+                        <p>You may opt out of any future contact from us at any time. You can:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>See what data we have about you.</li>
+                            <li>Request changes to your personal data.</li>
+                            <li>Request deletion of your personal data.</li>
+                        </ul>
+                        <h2 class="text-lg font-bold">Shipping & Delivery Policy</h2>
+                        <p>We strive to deliver your orders as quickly and safely as possible:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Local Courier:</strong> 1–2 working days</li>
+                            <li><strong>Within State:</strong> 2–5 working days</li>
+                            <li><strong>Outside State:</strong> 4–7 working days (depending on location and courier service)</li>
+                            <li><strong>Remote Areas:</strong> Delivery may take longer based on the courier company’s schedule</li>
+                        </ul>
+                        <p><strong>Please Note:</strong> Delivery times are estimates and may vary due to factors such as incorrect addresses, delays in customer responses, or Out of Delivery Area (ODA) restrictions.</p>
+
+                        <h2 class="text-lg font-bold">Security</h2>
+                        <p>We take precautions to protect your data, both online and offline.</p>
+
+                        <h2 class="text-lg font-bold">Contact Us</h2>
+                        <p>If you have any concerns, contact us at:</p>
+                        <p><strong>ISKCON Pune NVCC</strong></p>
+                        <p>📞 Phone: +91 8380077622</p>
+                        <p>📧 Email: jivadaya@iskconpune.in</p>
+                        <button class="mt-4 px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-300" onclick="closePopup()">Close</button>
+                    </div>
+                </div>
+
+                <!-- Refund Policy Popup -->
+                <div class="popup" id="refundPopup">
+                    <h2 class="text-xl font-bold">Donations</h2>
+                    <div class="mt-4 text-sm text-gray-300 space-y-4">
+                        <p><strong>1. Donations made to ISKCON are non-refundable</strong></p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>All donations made to ISKCON are voluntary and non-refundable.</li>
+                            <li>ISKCON reserves the right to allocate donated funds to any of its ongoing or future charitable, spiritual, or educational activities.</li>
+                        </ul>
+
+                        <p><strong>2. Non-Refundable Policy</strong></p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Donations once made <strong>cannot be cancelled, refunded, or transferred</strong>, regardless of the mode of payment.</li>
+                            <li>Donors are advised to double-check the amount, purpose, and personal information before making the donation.</li>
+                        </ul>
+
+                        <p><strong>3. Donation Receipts & 80G Certificate</strong></p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Donors will receive a receipt for every successful donation via email or WhatsApp (if details are provided).</li>
+                            <li>Donations are eligible for tax exemption under <strong>Section 80G of the Income Tax Act</strong>, where applicable.</li>
+                            <li>80G certificates will be issued for donations above ₹5000/- within 7–10 working days. Please ensure correct PAN and contact details are provided for this.</li>
+                            <li>All 10BE certificates for 80G donation made to Jivadaya ISKCON Pune can be downloaded from the link <a href="https://certificatemis.encureit.com" class="text-blue-400 hover:underline">https://certificatemis.encureit.com</a></li>
+                        </ul>
+
+                        <p><strong>4. Use of Funds</strong></p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>ISKCON commits to using all donations responsibly for spiritual, humanitarian, and educational services such as:
+                                <ul class="list-disc list-inside pl-6 space-y-1 mt-1">
+                                    <li>Book distribution</li>
+                                    <li>Temple maintenance</li>
+                                    <li>Food relief programs (prasadam distribution)</li>
+                                    <li>Festivals and public outreach events</li>
+                                    <li>Education and youth development</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <button class="mt-4 px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-300" onclick="closePopup()">Close</button>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="w-full text-center mt-8 pt-4 border-t border-gray-700">
+                    <p class="text-sm">Copyright &copy; <span id="currentYear"></span> International Society for Krishna Consciousness. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for popup functionality and dynamic year -->
+    <script>
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
