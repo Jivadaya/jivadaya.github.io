@@ -17,18 +17,16 @@
         }
 
         body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /* Background image */
-    background: linear-gradient(rgba(43, 126, 168, 0.1), rgba(43, 126, 168, 0.653)), 
-                url('https://jivadaya.github.io/assets/img/vec/background.jpg'); /* Update the file extension if it's an image */
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the image */
-    background-attachment: fixed; /* Keeps the image fixed during scroll */
-}
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(43, 126, 168, 0.1), rgba(43, 126, 168, 0.653)),
+                        url('https://jivadaya.github.io/assets/img/vec/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
         .login-form {
             width: 80%;
@@ -133,16 +131,9 @@
             z-index: 99;
         }
 
-        #loading-image {
-            position: absolute;
-            top: 100px;
-            left: 240px;
-            z-index: 100;
-        }
-
         .loader {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
             border-radius: 50%;
             width: 120px;
             height: 120px;
@@ -160,24 +151,27 @@
     <div id="loading">
         <div class="loader"></div>
     </div>
+
     <div class="login-form">
         <img src="https://jivadaya.github.io/assets/img/jivadaya/jivadaya_logo.png" alt="Jivadaya">
         <h2>Value Education Contest</h2>
-        <form name="regForm" method="post" action="./request.php" onsubmit="doSubmit()">
+        <form name="regForm" method="post" action="./request.php" onsubmit="return doSubmit()">
             <input type="hidden" id="referrer-name-field" name="name_field" placeholder="Referred By" required readonly pattern="[a-zA-Z0-9\- ]{5,}" value="">
-            <input type="hidden" id="amount" name="amount" placeholder="Amount" required readonly pattern="[0-9]{3,}" value="">
+            <input type="hidden" id="amount" name="amount" placeholder="Amount" required readonly pattern="[0-9]{1,}" value="">
 
             <input type="text" name="name" placeholder="Student Name" required autofocus>
 
-            <!-- School dropdown with updated styling -->
+            <!-- City dropdown -->
             <select name="city" id="city" required autocomplete="off">
                 <option value="" disabled selected>Select your city</option>
             </select>
 
+            <!-- School dropdown -->
             <select name="schoolOptions" id="schoolDropdown" required autocomplete="off">
                 <option value="" disabled selected>Select a school</option>
             </select>
 
+            <!-- Manual school input (shown when user selects Other) -->
             <input name="school" id="school-manual-input" placeholder="School Name with Address" hidden="true" autocomplete="off">
 
             <select name="class" id="classDropdown" required autocomplete="off">
@@ -198,146 +192,210 @@
             <select name="language" id="languageDropdown" autocomplete="off"  style="display: none;">
                 <option value="" disabled selected>Select your preferred language</option>
             </select>
+
             <p style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;" id="referrer-display">Referred by: <span id="referred_by">None</span></p>
-<!--            <p id="fee-display" style="text-align: center; display: none; color: #2c8ab5; padding-bottom: 10px;">Registration Fee: <span id="fee">0</span></p>-->
 
             <button type="submit">Register & Pay</button>
         </form>
     </div>
 
     <script src="https://jivadaya.github.io/assets/js/jquery.min.js"></script>
-</body>
-<script>
-    function doSubmit() {
-        let schoolManualInput = document.getElementById("school-manual-input");
-        let schoolDropdown = document.getElementById("schoolDropdown");
-        let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
+    <script>
+        function doSubmit() {
+            let schoolManualInput = document.getElementById("school-manual-input");
+            let schoolDropdown = document.getElementById("schoolDropdown");
+            let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
 
-        document.regForm.school.value = (chosenSchool==="Other" ? schoolManualInput.value : chosenSchool);
-        return true;
-    }
-
-    function removeOptions(selectElement) {
-        var i, L = selectElement.options.length - 1;
-        for(i = L; i > 0; i--) {
-            selectElement.remove(i);
+            // If "Other" selected, use manual input, else use chosen school label
+            document.regForm.school.value = (chosenSchool === "Other" ? schoolManualInput.value : chosenSchool);
+            return true;
         }
-        selectElement.options[0].selected = true;
-    }
 
-    const sheetUrl = "https://script.google.com/macros/s/AKfycbzAKk-jeiwX1L0L6KfG-5q3zAW3oHXYcoTxBNgj63V9LzxA3kUpOzUPuVSa_ILdjK1niA/exec";
-    var schoolData = [];
-    fetch(sheetUrl)
-        .then(response => response.json())
-        .then(data => {
-            schoolData = data;
+        function removeOptions(selectElement) {
+            var i, L = selectElement.options.length - 1;
+            for(i = L; i > 0; i--) {
+                selectElement.remove(i);
+            }
+            selectElement.options[0].selected = true;
+        }
 
-            let cities = [... new Set(schoolData.map(entry => entry["city"]))];
-            const dropdown = document.getElementById("city");
-            cities.forEach(cityName => {
-                if (cityName) {
+        // ---------- NEW: use API endpoint to fetch schools ----------
+        const apiUrl = "https://api.iskconpune.com/getAllSchoolsData";
+        let schoolData = [];
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) throw new Error("Network response not ok: " + response.status);
+                return response.json();
+            })
+            .then(data => {
+                // Expecting an array of objects, but if single object returned, normalize to array
+                if (!Array.isArray(data)) {
+                    // If API returns an object with nested data, you may need to adjust this mapping
+                    // For safety, try to detect and convert single object to array
+                    if (data && typeof data === 'object') {
+                        data = [data];
+                    } else {
+                        data = [];
+                    }
+                }
+
+                // Map fields to a normalized structure we use in UI
+                schoolData = data.map(item => ({
+                    id: item.id,
+                    school: item.school_name || item.school || "",           // normalized school name
+                    city: item.city || item.city_name || "",                  // normalized city
+                    languages: Array.isArray(item.languages) ? item.languages : (item.languages ? [item.languages] : []),
+                    fee: item.registration_fee || item.registration_fee || item.registrationFee || item.fee || "",
+                    ledger: item.ledger_id || item.ledger || item.ledgerId || "", // referrer/ledger id
+                    status: item.status || "open"
+                }));
+
+                // Build unique city list
+                let cities = [... new Set(schoolData.map(entry => entry.city).filter(Boolean))].sort();
+
+                const cityDropdown = document.getElementById("city");
+                cities.forEach(cityName => {
                     const option = document.createElement("option");
                     option.value = cityName;
                     option.textContent = cityName;
-                    dropdown.appendChild(option);
-                }
+                    cityDropdown.appendChild(option);
+                });
+
+                // Hide loader
+                document.getElementById("loading").style.display = "none";
+            })
+            .catch(error => {
+                console.error("Error fetching data from API:", error);
+                alert("There was an error loading the school data. Please refresh the page.");
+                // optional: keep loader visible or hide and provide fallback
+                document.getElementById("loading").style.display = "none";
             });
-            document.getElementById("loading").style.display = "none";
-        })
-        .catch(error => {
-            console.error("Error fetching data:", error);
-            alert("There was an error loading the city names. Please refresh the page.");
-            location.reload()
-        });
 
-    function resetForCity() {
-        removeOptions(document.getElementById("schoolDropdown"));
-        resetForSchool()
-    }
+        function resetForCity() {
+            removeOptions(document.getElementById("schoolDropdown"));
+            resetForSchool();
+        }
 
-    function resetForSchool() {
-        removeOptions(document.getElementById("languageDropdown"));
-        document.getElementById("languageDropdown").style.display = "none";
-        document.getElementById("languageDropdown").required = false;
+        function resetForSchool() {
+            removeOptions(document.getElementById("languageDropdown"));
+            document.getElementById("languageDropdown").style.display = "none";
+            document.getElementById("languageDropdown").required = false;
 
-        document.getElementById("school-manual-input").hidden = true;
-        document.getElementById("school-manual-input").required = false;
-        document.getElementById("school-manual-input").value = "";
-    }
+            document.getElementById("school-manual-input").hidden = true;
+            document.getElementById("school-manual-input").required = false;
+            document.getElementById("school-manual-input").value = "";
 
-    $('#city').change(function (e) {
-        resetForCity()
+            // hide referrer info
+            document.getElementById('referrer-display').style.display = "none";
+            document.getElementById('referred_by').innerText = "None";
+            document.getElementById('referrer-name-field').value = "";
+            document.getElementById('amount').value = "";
+        }
 
-        let chosenCity = $(e.target).find(":selected").text();
-        console.log("Selected city: " + chosenCity);
+        // when city changes, populate schools
+        $('#city').change(function (e) {
+            resetForCity();
 
-        const dropdown = document.getElementById("schoolDropdown");
-        let schoolsInCity = schoolData.filter(function (entry){
-            return entry["city"] === chosenCity && entry["school"]
-        }).map(entry => entry["school"]);
+            let chosenCity = $(e.target).find(":selected").text();
+            console.log("Selected city: " + chosenCity);
 
-        schoolsInCity.forEach(schoolName => {
-            if (schoolName) {
+            const dropdown = document.getElementById("schoolDropdown");
+            // filter schoolData by city and status open (optional)
+            let schoolsInCity = schoolData
+                .filter(function (entry){
+                    return entry.city === chosenCity && entry.school;
+                })
+                .map(entry => entry.school);
+
+            // Add unique sorted list of schools
+            schoolsInCity = [... new Set(schoolsInCity)].sort();
+
+            schoolsInCity.forEach(schoolName => {
                 const option = document.createElement("option");
                 option.value = schoolName;
                 option.textContent = schoolName;
                 dropdown.appendChild(option);
-            }
+            });
+
+            // Add "Other" option so user can enter manual school
+            const otherOption = document.createElement("option");
+            otherOption.value = "Other";
+            otherOption.textContent = "Other";
+            dropdown.appendChild(otherOption);
         });
 
-    });
+        // when school selected, set fee, ledger, languages
+        $('#schoolDropdown').change(function (e) {
+            resetForSchool();
 
-    $('#schoolDropdown').change(function (e) {
-        resetForSchool()
+            let schoolDropdown = document.getElementById("schoolDropdown");
+            let chosenCity = $("#city").find(":selected").text();
+            let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
 
-        let schoolManualInput = document.getElementById("school-manual-input");
-        let schoolDropdown = document.getElementById("schoolDropdown");
+            console.log("Selected city:", chosenCity);
+            console.log("Selected school:", chosenSchool);
 
-        let chosenCity = $("#city").find(":selected").text();
-        let chosenSchool = schoolDropdown.options[schoolDropdown.selectedIndex].text;
+            if (chosenSchool === "Other") {
+                // reveal manual input
+                let schoolManualInput = document.getElementById("school-manual-input");
+                schoolManualInput.hidden = false;
+                schoolManualInput.required = true;
+                schoolManualInput.focus();
 
-        console.log("Selected city: " + chosenCity);
-        console.log("Selected school: " + chosenSchool);
-        console.log("Manually selected school:", schoolManualInput.value);
+                // default referrer if user enters manual school
+                document.getElementById('referrer-name-field').value = "N156473 - Jivadaya Collection";
+                document.getElementById('amount').value = ""; // unknown until user chooses or you decide default
+                document.getElementById('referred_by').innerText = "Jivadaya Collection";
+                document.getElementById('referrer-display').style.display = "block";
+                return;
+            }
 
-        if (chosenSchool === "Other" && !schoolManualInput.value) {
-            schoolManualInput.hidden = false;
-            schoolManualInput.required = true;
-            schoolManualInput.focus();
-        }
-
-        console.log(chosenCity, chosenSchool);
-        let entries = schoolData.filter(function (entry) {
-            return entry["city"]===chosenCity && entry["school"]===chosenSchool;
-        })
-
-        let fee = entries[0]["fee"];
-        let referrer = entries[0]["ledger"];
-        if (!referrer) {
-            referrer = "N156473 - Jivadaya Collection" // default jivadaya referrer id;
-        }
-        document.getElementById('referred_by').innerText = referrer.split("-")[1];
-        document.getElementById('referrer-name-field').value = referrer;
-        document.getElementById('amount').value = fee;
-        document.getElementById('referrer-display').style.display = "block";
-
-        let languages = entries[0]["languages"];
-        if (!languages.length) {
-            document.getElementById("languageDropdown").style.display = "none";
-        } else {
-            let languageDropdown = document.getElementById("languageDropdown")
-            languageDropdown.style.display = "block";
-            languageDropdown.required = true;
-            languages.forEach(language => {
-                if (language) {
-                    const option = document.createElement("option");
-                    option.value = language;
-                    option.textContent = language;
-                    languageDropdown.appendChild(option);
-                }
+            // find the corresponding entry (first match)
+            let entries = schoolData.filter(function (entry) {
+                return entry.city === chosenCity && entry.school === chosenSchool;
             });
-        }
 
-    });
-</script>
+            if (!entries || entries.length === 0) {
+                console.warn("No matching school entry found for", chosenCity, chosenSchool);
+                return;
+            }
+
+            let entry = entries[0];
+
+            // set fee (amount) and ledger (referrer)
+            let fee = entry.fee || "";
+            let referrer = entry.ledger || "";
+            if (!referrer) {
+                referrer = "N156473 - Jivadaya Collection"; // default jivadaya referrer id;
+            }
+
+            // populate hidden fields and show referred_by
+            document.getElementById('referred_by').innerText = (referrer.split("-")[1] || referrer).trim();
+            document.getElementById('referrer-name-field').value = referrer;
+            document.getElementById('amount').value = fee;
+            document.getElementById('referrer-display').style.display = "block";
+
+            // languages
+            let languages = Array.isArray(entry.languages) ? entry.languages : (entry.languages ? [entry.languages] : []);
+            if (!languages.length) {
+                document.getElementById("languageDropdown").style.display = "none";
+                document.getElementById("languageDropdown").required = false;
+            } else {
+                let languageDropdown = document.getElementById("languageDropdown");
+                languageDropdown.style.display = "block";
+                languageDropdown.required = true;
+
+                languages.forEach(language => {
+                    if (language) {
+                        const option = document.createElement("option");
+                        option.value = language;
+                        option.textContent = language;
+                        languageDropdown.appendChild(option);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 </html>
