@@ -290,7 +290,10 @@
             document.getElementById('referrer-display').style.display = "none";
             document.getElementById('referred_by').innerText = "None";
             document.getElementById('referrer-name-field').value = "";
-            document.getElementById('amount').value = "";
+            // document.getElementById('amount').value = "";
+            if (document.getElementById("schoolDropdown").value !== "Other") {
+    document.getElementById('amount').value = "";
+}
         }
 
         // when city changes, populate schools
