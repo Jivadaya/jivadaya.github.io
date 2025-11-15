@@ -158,6 +158,7 @@
         <form name="regForm" method="post" action="./request.php" onsubmit="return doSubmit()">
             <input type="hidden" id="referrer-name-field" name="name_field" placeholder="Referred By" required readonly pattern="[a-zA-Z0-9\- ]{5,}" value="">
             <input type="hidden" id="amount" name="amount" placeholder="Amount" required readonly pattern="[0-9]{1,}" value="">
+            <input type="hidden" name="school" id="school-selected">
 
             <input type="text" name="name" placeholder="Student Name" required autofocus>
 
@@ -291,8 +292,7 @@
             document.getElementById('referred_by').innerText = "None";
             document.getElementById('referrer-name-field').value = "";
             // document.getElementById('amount').value = "";
-            if (document.getElementById("schoolDropdown").value !== "Other") {
-    document.getElementById('amount').value = "";
+            
 }
         }
 
