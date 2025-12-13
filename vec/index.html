@@ -319,12 +319,6 @@
                 option.textContent = schoolName;
                 dropdown.appendChild(option);
             });
-
-            // Add "Other" option so user can enter manual school
-            const otherOption = document.createElement("option");
-            otherOption.value = "Other";
-            otherOption.textContent = "Other";
-            dropdown.appendChild(otherOption);
         });
 
         // when school selected, set fee, ledger, languages
@@ -346,13 +340,7 @@
                 schoolManualInput.focus();
 
                 // default referrer if user enters manual school
-                document.getElementById('referrer-name-field').value = "N156473 - Jivadaya Collection";
-                document.getElementById('amount').value = ""; // unknown until user chooses or you decide default
-                document.getElementById('school_id').value = ""; // unknown until user chooses or you decide default
-                document.getElementById('referred_by').innerText = "Jivadaya Collection";
-                document.getElementById('referrer-display').style.display = "block";
-                return;
-            }
+           }
 
             // find the corresponding entry (first match)
             let entries = schoolData.filter(function (entry) {
